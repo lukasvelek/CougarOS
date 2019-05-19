@@ -40,6 +40,8 @@ namespace CougarOS
 
         // APP DECLARATION
 
+        static apps.Calculator appCalculator = new apps.Calculator();
+
         // END OF APP DECLARATION
 
         static void Main()
@@ -110,6 +112,7 @@ namespace CougarOS
             switch (systerminal.send(cmd))
             {
                 case "calculator":
+                    
                     break;
                 case null:
                     break;
