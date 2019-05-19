@@ -1,0 +1,6 @@
+C:\Users\Luky\source\repos\CougarOS\cos-apps\bin\Debug\cos-apps.dll
+C:\Users\Luky\source\repos\CougarOS\cos-apps\bin\Debug\cos-apps.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Debug\cos-apps.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Debug\cos-apps.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Debug\cos-apps.dll
+C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Debug\cos-apps.pdb
