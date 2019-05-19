@@ -12,17 +12,18 @@ namespace cos_api_system
     {
         public string send(string cmd)
         {
-            XmlDocument doc = new XmlDocument();
+            /*XmlDocument doc = new XmlDocument();
 
             doc.Load(@"Apps.xml");
 
-            
+            XmlNodeList normalUserApps = doc.SelectNodes("/Apps/UserAccess");
 
-            /*foreach(string app in apps)
+            foreach(XmlNode app in normalUserApps)
             {
-                if(cmd.ToLower() == app.ToLower())
+                if(cmd.ToLower() == app.InnerText.ToLower())
                 {
-                    return cmd.ToLower();
+                    Console.WriteLine(app.InnerText);
+                    //return cmd.ToLower();
                 }
                 else
                 {
@@ -30,6 +31,23 @@ namespace cos_api_system
                     return null;
                 }
             }*/
+
+            using(XmlReader reader = XmlReader.Create(@"Apps.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "Title":
+                                break;
+                            case "Version":
+                                break;
+                        }
+                    }
+                }
+            }
 
             Console.ReadKey();
 

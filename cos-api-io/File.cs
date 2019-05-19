@@ -83,7 +83,7 @@ namespace cos_api_io
         {
             //FileStream fs = System.IO.File.Create(user_file_path);
 
-            string[] lines = System.IO.File.ReadAllLines(user_file_path + user_filename);
+            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
 
             foreach(string line in lines)
             {

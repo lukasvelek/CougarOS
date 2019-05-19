@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB7715CD-7793-4FF9-96F2-E8F9DD26D511}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CougarOS</RootNamespace>
+    <AssemblyName>CougarOS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="cos_user.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cos-api-display\cos-api-display.csproj">
+      <Project>{fa43b000-8c69-48fb-abe8-b9fc6b7d5ce3}</Project>
+      <Name>cos-api-display</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cos-api-io\cos-api-io.csproj">
+      <Project>{0fb6fdd5-5642-45ee-bbbe-ae8fc26bd9f0}</Project>
+      <Name>cos-api-io</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cos-api-math\cos-api-math.csproj">
+      <Project>{3698c52f-6126-4169-af62-a533c8620153}</Project>
+      <Name>cos-api-math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cos-api-system\cos-api-system.csproj">
+      <Project>{fc4d120b-dac2-462a-913e-e1803b7c2a45}</Project>
+      <Name>cos-api-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cos-api-user\cos-api-user.csproj">
+      <Project>{d1dabec1-975a-464e-841f-f3c6f5cd0b8f}</Project>
+      <Name>cos-api-user</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cos-apps\cos-apps.csproj">
+      <Project>{9a87d20c-8a9f-44bd-a2c4-4da7bc95cd63}</Project>
+      <Name>cos-apps</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Apps.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="USER_DATA_PROTOTYPE.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
