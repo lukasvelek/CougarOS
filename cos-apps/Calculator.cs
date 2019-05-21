@@ -10,6 +10,35 @@ namespace cos_apps
     public class Calculator
     {
 
+        public double loadNumbers()
+        {
+            Console.Clear();
+            Console.WriteLine("Number 1: ");
+            int x = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Number 2: ");
+            int y = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Function (+,-,*,/): ");
+            string f = Console.ReadLine();
+
+            switch (f)
+            {
+                case "+":
+                    return (double)x + (double)y;
+                case "-":
+                    return (double)x - (double)y;
+                case "*":
+                    return (double)x * (double)y;
+                case "/":
+                    return (double)x / (double)y;
+                default:
+                    loadNumbers();
+                    break;
+            }
+
+            loadNumbers();
+            return 0.0;
+        }
+
         public int straightResponse(string text)
         {
             string pattern = @"(\d+)\s+([-+*/])\s+(\d+)";
@@ -22,17 +51,13 @@ namespace cos_apps
                     switch (m.Groups[2].Value)
                     {
                         case "+":
-                            Console.WriteLine("{0} = {1}", m.Value, value1 + value2);
-                            break;
+                            return value1 + value2;
                         case "-":
-                            Console.WriteLine("{0} = {1}", m.Value, value1 - value2);
-                            break;
+                            return value1 - value2;
                         case "*":
-                            Console.WriteLine("{0} = {1}", m.Value, value1 * value2);
-                            break;
+                            return value1 * value2;
                         case "/":
-                            Console.WriteLine("{0} = {1:N2}", m.Value, value1 / value2);
-                            break;
+                            return value1 / value2;
                     }
                 }
             }

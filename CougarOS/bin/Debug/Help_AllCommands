@@ -1,0 +1,3 @@
+﻿help - Lists all commands and shows description for them
+ls - Lists content of current directory
+dir [destination_directory] - changes directory

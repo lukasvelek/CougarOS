@@ -17,6 +17,8 @@ namespace CougarOS
     {
         static string currentUserUsername;
         static string currentUserPassword;
+        static string currentLocation = "/home/";
+        static string currentPermission
 
         static bool hasBootedUp = false;
 
@@ -41,6 +43,7 @@ namespace CougarOS
         // APP DECLARATION
 
         static apps.Calculator appCalculator = new apps.Calculator();
+        static apps.Help appHelp = new apps.Help();
 
         // END OF APP DECLARATION
 
@@ -77,10 +80,12 @@ namespace CougarOS
                 displaylogin.drawForm();
                 currentUserUsername = displaylogin.getUsername();
                 currentUserPassword = displaylogin.getPassword();
+                currentUserPermissions = 
 
                 if (iofile.checkUserData(user_file_path, user_filename, currentUserUsername, currentUserPassword))
                 {
                     //iofile.log(log_file_path, log_filename, "User has successfully logged in!");
+                    currentLocation = "/home/";
                     Desktop();
                 }
                 else
@@ -104,21 +109,31 @@ namespace CougarOS
 
         private static void Desktop()
         {
-            Console.Clear();
-
+            Console.Write(currentUserUsername + "@" + currentLocation + "$ ");
+            
             string cmd = Console.ReadLine();
 
             // FOR NORMAL USERS
-            switch (systerminal.send(cmd))
+            switch (cmd)
             {
                 case "calculator":
-                    
+                    Console.WriteLine(appCalculator.loadNumbers());
                     break;
-                case null:
+                case "help":
+                    Console.WriteLine(appHelp.allHelp());
+                    break;
+                case "clear":
+                    Console.Clear();
+                    break;
+                case "su":
+                    if()
                     break;
                 default:
+                    Desktop();
                     break;
             }
+
+            Desktop();
         }
     }
 }
