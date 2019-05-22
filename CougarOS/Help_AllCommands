@@ -1,3 +1,5 @@
 ﻿help - Lists all commands and shows description for them
 ls - Lists content of current directory
 dir [destination_directory] - changes directory
+su - grants administrator access to admin-only commands
+desu - denies administrator access to admin-only commands

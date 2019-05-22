@@ -20,6 +20,7 @@ namespace CougarOS
     {
         static string currentUserUsername;
         static string currentUserPassword;
+        static string currentUserUsernameLarge;
         static string currentLocation = "/home/";
         static string currentPermission = "user";
 
@@ -139,10 +140,32 @@ namespace CougarOS
                     if(currentPermission == "admin")
                     {
                         // isn't needed
+                        currentUserUsernameLarge = currentUserUsername + "^su";
+                        currentPermission = "admin";
                     }
                     else
                     {
-                        systerminal.checkPassword(currentUserUsername);
+                        if (systerminal.checkPassword(currentUserUsername))
+                        {
+                            currentUserUsernameLarge = currentUserUsername + "^su";
+                            currentPermission = "admin";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Entered password isn't right. Please try again!");
+                            Desktop();
+                        }
+                    }
+                    break;
+                case "desu":
+                    if(currentPermission == "admin" && currentUserUsername == "root")
+                    {
+                        currentUserUsernameLarge = currentUserUsername;
+                        currentPermission = "user";
+                    }
+                    else
+                    {
+                        Console.Write("You are not an administrator!");
                     }
                     break;
                 default:
