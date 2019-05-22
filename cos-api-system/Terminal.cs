@@ -22,7 +22,7 @@ namespace cos_api_system
             if (iofile.checkPassword(username, subpassword))
             {
                 // password is ok
-
+                return true;
             }
 
             return false;

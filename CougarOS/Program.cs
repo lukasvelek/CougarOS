@@ -34,6 +34,8 @@ namespace CougarOS
 
         //static Commands
 
+        static Commands commands = new Commands();
+
         static math.SimpleMath mathsm = new math.SimpleMath();
 
         static io.File iofile = new io.File();
@@ -130,13 +132,13 @@ namespace CougarOS
             switch (cmd)
             {
                 case "calculator":
-                    Console.WriteLine(appCalculator.loadNumbers());
+                    commands.calculator();
                     break;
                 case "help":
-                    Console.WriteLine(appHelp.allHelp());
+                    commands.help();
                     break;
                 case "clear":
-                    Console.Clear();
+                    commands.clear();
                     break;
                 case "su":
                     if(currentPermission == "admin")
@@ -177,7 +179,25 @@ namespace CougarOS
                     }
                     else
                     {
-
+                        if (currentPermission == "admin")
+                        {
+                            // isn't needed
+                            currentUserUsernameLarge = currentUserUsername + "^su";
+                            currentPermission = "admin";
+                        }
+                        else
+                        {
+                            if (systerminal.checkPassword(currentUserUsername))
+                            {
+                                currentUserUsernameLarge = currentUserUsername + "^su";
+                                currentPermission = "admin";
+                            }
+                            else
+                            {
+                                Console.WriteLine("Entered password isn't right. Please try again!");
+                                Desktop();
+                            }
+                        }
                     }
                     break;
                 default:

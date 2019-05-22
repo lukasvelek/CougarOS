@@ -137,7 +137,7 @@ namespace cos_api_io
                 }
                 else
                 {
-                    return false;
+                    continue;
                 }
             }
 
