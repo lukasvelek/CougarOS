@@ -32,6 +32,8 @@ namespace CougarOS
         static string log_filename = "cos_logfile.log";
         static string user_filename = "cos_user.db";
 
+        static Commands
+
         static math.SimpleMath mathsm = new math.SimpleMath();
 
         static io.File iofile = new io.File();
@@ -166,6 +168,16 @@ namespace CougarOS
                     else
                     {
                         Console.Write("You are not an administrator!");
+                    }
+                    break;
+                case "config":
+                    if(currentPermission == "admin")
+                    {
+
+                    }
+                    else
+                    {
+
                     }
                     break;
                 default:
