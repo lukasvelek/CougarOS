@@ -32,7 +32,7 @@ namespace CougarOS
         static string log_filename = "cos_logfile.log";
         static string user_filename = "cos_user.db";
 
-        static Commands
+        //static Commands
 
         static math.SimpleMath mathsm = new math.SimpleMath();
 
