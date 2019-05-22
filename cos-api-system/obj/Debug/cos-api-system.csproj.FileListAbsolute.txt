@@ -4,3 +4,6 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Debug\cos-api-system.cspr
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Debug\cos-api-system.csproj.CoreCompileInputs.cache
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Debug\cos-api-system.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Debug\cos-api-system.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-io.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-io.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Debug\cos-api-system.csproj.CopyComplete

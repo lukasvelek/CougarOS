@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security;
+using System.Windows;
+
 
 using io = cos_api_io;
 using math = cos_api_math;
@@ -18,7 +21,7 @@ namespace CougarOS
         static string currentUserUsername;
         static string currentUserPassword;
         static string currentLocation = "/home/";
-        static string currentPermission
+        static string currentPermission = "user";
 
         static bool hasBootedUp = false;
 
@@ -49,7 +52,6 @@ namespace CougarOS
 
         static void Main()
         {
-
             if (!hasBootedUp)
             {
                 //iofile.checkLogFile(log_file_path, log_filename);
@@ -59,7 +61,6 @@ namespace CougarOS
             {
                 Login();
             }
-
         }
 
         private static void BootUp()
@@ -80,12 +81,21 @@ namespace CougarOS
                 displaylogin.drawForm();
                 currentUserUsername = displaylogin.getUsername();
                 currentUserPassword = displaylogin.getPassword();
-                currentUserPermissions = 
 
                 if (iofile.checkUserData(user_file_path, user_filename, currentUserUsername, currentUserPassword))
                 {
                     //iofile.log(log_file_path, log_filename, "User has successfully logged in!");
                     currentLocation = "/home/";
+
+                    if(iofile.checkAdmin(user_file_path, user_filename, currentUserUsername, currentUserPassword))
+                    {
+                        currentPermission = "admin";
+                    }
+                    else
+                    {
+                        currentPermission = "user";
+                    }
+
                     Desktop();
                 }
                 else
@@ -126,7 +136,14 @@ namespace CougarOS
                     Console.Clear();
                     break;
                 case "su":
-                    if()
+                    if(currentPermission == "admin")
+                    {
+                        // isn't needed
+                    }
+                    else
+                    {
+                        systerminal.checkPassword(currentUserUsername);
+                    }
                     break;
                 default:
                     Desktop();

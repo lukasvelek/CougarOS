@@ -47,5 +47,11 @@
     <Compile Include="Terminal.cs" />
     <Compile Include="Thread.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cos-api-io\cos-api-io.csproj">
+      <Project>{0fb6fdd5-5642-45ee-bbbe-ae8fc26bd9f0}</Project>
+      <Name>cos-api-io</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

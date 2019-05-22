@@ -79,6 +79,50 @@ namespace cos_api_io
             }
         }
 
+        public bool checkAdmin(string user_file_path, string user_filename, string username, string password)
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+
+            foreach(string line in lines)
+            {
+                if(line == "\"" + username + "\"-\"" + password + "\"-normal")
+                {
+                    // normal user
+
+                    return false;
+                }else if(line == "\"" + username + "\"-\"" + password + "\"-admin")
+                {
+                    // administrator
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool checkPassword(string username, string password)
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+
+            foreach(string line in lines)
+            {
+                if(line == "\"" + username + "\"-\"" + password + "\"-admin")
+                {
+                    return true;
+                }else if(line == "\"" + username + "\"-\"" + password + "\"-admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
         public bool checkUserData(string user_file_path, string user_filename, string username, string password)
         {
             //FileStream fs = System.IO.File.Create(user_file_path);
@@ -87,7 +131,7 @@ namespace cos_api_io
 
             foreach(string line in lines)
             {
-                if (line == ("\"" + username + "\"-\"" + password + "\""))
+                if (line == ("\"" + username + "\"-\"" + password + "\"-admin") || line == ("\"" + username + "\"-\"" + password + "\"-normal"))
                 {
                     return true;
                 }
