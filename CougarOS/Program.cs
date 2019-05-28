@@ -122,9 +122,29 @@ namespace CougarOS
             }
         }
 
+        private static void Exit()
+        {
+            Environment.Exit(0);
+        }
+
+        private static void Config()
+        {
+            Console.Clear();
+            
+        }
+
         private static void Desktop()
         {
-            Console.Write(currentUserUsername + "@" + currentLocation + "$ ");
+            if(currentPermission == "admin")
+            {
+                currentUserUsernameLarge = currentUserUsername + "^su";
+
+                Console.Write(currentUserUsernameLarge + "@" + currentLocation + "$ ");
+            }
+            else
+            {
+                Console.Write(currentUserUsername + "@" + currentLocation + "$ ");
+            }
             
             string cmd = Console.ReadLine();
 
@@ -144,8 +164,9 @@ namespace CougarOS
                     if(currentPermission == "admin")
                     {
                         // isn't needed
-                        currentUserUsernameLarge = currentUserUsername + "^su";
-                        currentPermission = "admin";
+                        /*currentUserUsernameLarge = currentUserUsername + "^su";
+                        currentPermission = "admin";*/
+                        Console.WriteLine("You already are an administrator!");
                     }
                     else
                     {
@@ -162,10 +183,13 @@ namespace CougarOS
                     }
                     break;
                 case "desu":
-                    if(currentPermission == "admin" && currentUserUsername == "root")
+                    if(currentPermission == "admin" && currentUserUsername != "root")
                     {
                         currentUserUsernameLarge = currentUserUsername;
                         currentPermission = "user";
+                    }else if(currentUserUsername == "root")
+                    {
+                        Console.WriteLine("User 'root' can't lose their permissions! Please log in as different user!");
                     }
                     else
                     {
@@ -175,30 +199,19 @@ namespace CougarOS
                 case "config":
                     if(currentPermission == "admin")
                     {
-
+                        Config();
                     }
                     else
                     {
-                        if (currentPermission == "admin")
-                        {
-                            // isn't needed
-                            currentUserUsernameLarge = currentUserUsername + "^su";
-                            currentPermission = "admin";
-                        }
-                        else
-                        {
-                            if (systerminal.checkPassword(currentUserUsername))
-                            {
-                                currentUserUsernameLarge = currentUserUsername + "^su";
-                                currentPermission = "admin";
-                            }
-                            else
-                            {
-                                Console.WriteLine("Entered password isn't right. Please try again!");
-                                Desktop();
-                            }
-                        }
+                        // isn't admin
+                        // maybe wouldn't be able to configurate the os?
                     }
+                    break;
+                case "logout":
+                    Login();
+                    break;
+                case "exit":
+                    Exit();
                     break;
                 default:
                     Desktop();

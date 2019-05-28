@@ -110,7 +110,7 @@ namespace cos_api_io
                 if(line == "\"" + username + "\"-\"" + password + "\"-admin")
                 {
                     return true;
-                }else if(line == "\"" + username + "\"-\"" + password + "\"-admin")
+                }else if(line == "\"" + username + "\"-\"" + password + "\"-normal")
                 {
                     return true;
                 }
