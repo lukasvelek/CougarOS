@@ -25,8 +25,28 @@ namespace cos_api_display
 
         public string getPassword()
         {
+            string pass = "";
             Console.WriteLine("Your password: ");
-            return Console.ReadLine();
+            ConsoleKeyInfo key;
+
+            do
+            {
+                key = Console.ReadKey(true);
+
+                if (key.Key != ConsoleKey.Backspace)
+                {
+                    pass += key.KeyChar;
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write("\b");
+                }
+            }
+            while (key.Key != ConsoleKey.Enter);
+
+            return pass;
+            //return Console.ReadLine();
         }
 
     }
