@@ -130,8 +130,20 @@ namespace CougarOS
         private static void Config()
         {
             Console.Clear();
-            
+
+            Console.WriteLine("1/ Users");
+            Console.WriteLine("0/ Back");
+            string x = Console.ReadLine();
+
+            switch (x)
+            {
+                case "1":
+                    ConfigUsers();
+                    break;
+            }
         }
+
+        
 
         private static void Desktop()
         {
