@@ -3,3 +3,5 @@
 *.dll
 *.CopyComplete
 .chache
+*.ide-shm
+*.ide-wal
