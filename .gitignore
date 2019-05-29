@@ -5,3 +5,6 @@
 .chache
 *.ide-shm
 *.ide-wal
+.vs/CougarOS/v16/.suo
+*.cache
+CougarOS/obj/Debug/CougarOS.csprojAssemblyReference.cache

@@ -48,6 +48,12 @@ namespace CougarOS
 
         static usr.NormalUser usrnu = new usr.NormalUser();
 
+        // CONFIG DECLARATION
+
+        static ConfigUsers cfgusers = new ConfigUsers();
+
+        // END OF CONFIG DECLARATION
+
         // APP DECLARATION
 
         static apps.Calculator appCalculator = new apps.Calculator();
@@ -130,15 +136,18 @@ namespace CougarOS
         private static void Config()
         {
             Console.Clear();
-
+            Console.WriteLine("Config/");
+            Console.WriteLine("");
             Console.WriteLine("1/ Users");
+            Console.WriteLine("2/ ");
             Console.WriteLine("0/ Back");
             string x = Console.ReadLine();
 
             switch (x)
             {
                 case "1":
-                    ConfigUsers();
+                    //ConfigUsers();
+                    cfgusers.Main();
                     break;
             }
         }
