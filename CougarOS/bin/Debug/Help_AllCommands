@@ -3,3 +3,7 @@ ls - Lists content of current directory
 dir [destination_directory] - changes directory
 su - grants administrator access to admin-only commands
 desu - denies administrator access to admin-only commands
+clear - clears the terminal
+config - enables user with elevated permissions configurate the system
+exit - terminates the system
+logout - logs out the current user
