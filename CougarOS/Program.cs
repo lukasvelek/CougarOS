@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Security;
+using System.Windows;
+
 
 using io = cos_api_io;
 using math = cos_api_math;
@@ -43,8 +50,7 @@ namespace CougarOS
 
         // CONFIG DECLARATION
 
-        // USER
-        static UserConfig usrcfg = new UserConfig();
+        static ConfigUsers cfgusers = new ConfigUsers();
 
         // END OF CONFIG DECLARATION
 
@@ -131,65 +137,22 @@ namespace CougarOS
         {
             Console.Clear();
             Console.WriteLine("Config/");
+            Console.WriteLine("");
             Console.WriteLine("1/ Users");
-            Console.WriteLine("2/ Modules");
+            Console.WriteLine("2/ ");
             Console.WriteLine("0/ Back");
-            string option = Console.ReadLine();
+            string x = Console.ReadLine();
 
-            switch (option)
+            switch (x)
             {
                 case "1":
                     //ConfigUsers();
-                    switch (usrcfg.Main())
-                    {
-                        case 1:
-                            // add a user
-
-                            break;
-                        case 2:
-                            // list all users
-                            break;
-                        case 0:
-                            Config();
-                            break;
-                        case -1:
-                            Config();
-                            break;
-                    }
-                    break;
-                case "2":
-                    break;
-                case "0":
-                    break;
-                default:
-                    Config();
+                    cfgusers.Main();
                     break;
             }
         }
 
-        private static void ConfigUsers()
-        {
-            Console.Clear();
-            Console.WriteLine("Config/Users");
-            Console.WriteLine("1/ Add a user");
-            Console.WriteLine("2/ List all users");
-            Console.WriteLine("3/ User security");
-            Console.WriteLine("0/ Back");
-            string option = Console.ReadLine();
-
-            switch (option)
-            {
-                case "1":
-                    
-                    break;
-                case "0":
-                    Config();
-                    break;
-                default:
-                    ConfigUsers();
-                    break;
-            }
-        }
+        
 
         private static void Desktop()
         {
