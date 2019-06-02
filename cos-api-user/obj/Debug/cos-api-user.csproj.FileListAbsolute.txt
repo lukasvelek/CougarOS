@@ -4,3 +4,9 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.csprojAs
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.csproj.CoreCompileInputs.cache
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.pdb
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\bin\Debug\cos-api-user.dll
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\bin\Debug\cos-api-user.pdb
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.csprojAssemblyReference.cache
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.csproj.CoreCompileInputs.cache
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.dll
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.pdb

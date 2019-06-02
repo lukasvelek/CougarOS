@@ -1,0 +1,34 @@
+﻿-------------------
+- CougarOS Manual -
+-------------------
+
+Contains:
+	#1 System Description
+	#2 System Components
+	#3 System Usage
+	#4 System Application Programming Interface (API)
+	#5 Copyright Claim
+
+#1 System Description
+	The CougarOS Operating System (next referred to as 'COS') is a open-source program written in the C Sharp Programming Language (next referred to as 'C#') by a high school student.
+The program has been built to show off the student's command line programming knowledge. Although this program is named Operating System (next referred to as 'OS'), it contains
+only few tools that normal OS (e.g. Microsoft(c) Windows(r), Apple Inc. macOS, etc.) contains. It isn't meant to be used instead of normal OS and therefore any harm done
+to the computer is not reason to offend the author of the program. It was made to be used for fun not as a real OS.
+
+#2 System Components
+	The COS contains set of basic tools - calculator, file explorer and text editor. All tools and applications are listed below the description. All the components have been built
+and developed by the author of the program using tools listed below.
+
+#3 System Usage
+	The usage of the COS can be found below or specificaly using the command 'help' which shows all the available commands and the description of usage and functionality.
+The program itself doesn't contain any mouse related activities and therefore can be used without mouse except for running the app if it can't be done without mouse.
+The program doesn't use any non ASCII characters and therefore can be used only with latin keyboard. Other keyboards aren't supported or if they are, the functionality can be found below.
+
+#4 System Application Programming Interface (API)
+	As of June 2nd, 2019, the program doesn't contain any Application Programming Interface (referred to as 'API'). Therefore the usage of any third party tools
+is not recommended except for those allowed by the author.
+
+#5 Copyright Claim
+	The C Sharp (C#) Programming Language is property of Microsoft(c). The program has been developed with the usage of Microsoft(c) Visual Studio and Microsoft(c) Windows(r)
+operating system both owned by Microsoft(c). The code of the program is open-source but it's still property of Lukas Velek, the author of the program and it's tools and components,
+if not otherwise.

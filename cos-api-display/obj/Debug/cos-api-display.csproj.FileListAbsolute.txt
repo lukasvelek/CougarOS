@@ -4,3 +4,9 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.cs
 C:\Users\Luky\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.csproj.CoreCompileInputs.cache
 C:\Users\Luky\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.pdb
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\bin\Debug\cos-api-display.dll
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\bin\Debug\cos-api-display.pdb
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.csprojAssemblyReference.cache
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.csproj.CoreCompileInputs.cache
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.dll
+C:\Users\Lukáš Velek\source\repos\CougarOS\cos-api-display\obj\Debug\cos-api-display.pdb

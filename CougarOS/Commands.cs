@@ -53,5 +53,40 @@ namespace CougarOS
             return;
         }
 
+        public void Manual()
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"SystemManual");
+
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+            return;
+        }
+
+        public void About()
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"About");
+
+            foreach(string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+            return;
+        }
+
+        public bool AmIRoot(string status)
+        {
+
+            if(status == "user")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

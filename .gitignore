@@ -1,0 +1,10 @@
+
+.vs/CougarOS/v16/.suo
+.vs/CougarOS/v16/Server/sqlite3/storage.ide-shm
+.vs/CougarOS/v16/.suo
+.vs/CougarOS/v16/Server/sqlite3/storage.ide-wal
+cos-api-display/obj/Debug/cos-api-display.csproj.CoreCompileInputs.cache
+cos-api-display/obj/Debug/cos-api-display.csprojAssemblyReference.cache
+*.cache
+*.ide
+*.cache

@@ -26,10 +26,10 @@ namespace CougarOS
 
         static bool hasBootedUp = false;
 
-        static string log_file_path = @"c:\temp\";
+        static string log_file_path = @"c:\temp\"; // delete later
         static string user_file_path = @"c:\temp\";
 
-        static string log_filename = "cos_logfile.log";
+        static string log_filename = "cos_logfile.log"; // delete later
         static string user_filename = "cos_user.db";
 
         //static Commands
@@ -233,6 +233,22 @@ namespace CougarOS
                     break;
                 case "exit":
                     Exit();
+                    break;
+                case "amiroot":
+                    if (commands.AmIRoot(currentPermission))
+                    {
+                        Console.WriteLine("Yes");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No");
+                    }
+                    break;
+                case "manual":
+                    commands.Manual();
+                    break;
+                case "about":
+                    commands.About();
                     break;
                 default:
                     Desktop();

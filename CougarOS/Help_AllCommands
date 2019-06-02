@@ -7,3 +7,6 @@ clear - clears the terminal
 config - enables user with elevated permissions configurate the system
 exit - terminates the system
 logout - logs out the current user
+amiroot - return 'yes' as being root or 'no' as not being root depending on the current permissions of the user
+about - displays all the information about the system
+manual - displays the manual file

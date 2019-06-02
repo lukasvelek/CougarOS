@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<Files>
+  <Category id="API">
+    <Class id="cos-api-display">
+      <Component id="Boot.cs" />
+      <Component id="Login.cs" />
+    </Class>
+    <Class id="cos-api-io">
+      <Component id="File.cs" />
+    </Class>
+    <Class id="cos-api-math">
+      <Component id="SimpleMath.cs" />
+    </Class>
+    <Class id="cos-api-system">
+      <Component id="Terminal.cs" />
+      <Component id="Thread.cs" />
+    </Class>
+    <Class id="cos-api-user">
+      <Component id="NormalUser.cs" />
+    </Class>
+  </Category>
+  <Category id="System">
+    <Class id="cos-apps">
+      <Component id="Calculator.cs" />
+      <Component id="Help.cs" />
+    </Class>
+    <Class id="CougarOS">
+      <Component id="Commands.cs" />
+      <Component id="ConfigUsers.cs" />
+      <Component id="Program.cs" />
+    </Class>
+  </Category>
+  <Category id="Others">
+    <Component id=".gitignore" />
+    <Component id="AllFiles.xml" />
+    <Component id="App.config" />
+    <Component id="Apps.lf" />
+    <Component id="Apps.xml" />
+    <Component id="cos_user.db" />
+    <Component id="Help_AllCommands" />
+    <Component id="SystemManual" />
+    <Component id="USER_DATA_PROTOTYPE.txt" />
+    <Component id="About" />
+  </Category>
+</Files>
