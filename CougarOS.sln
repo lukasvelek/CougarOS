@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CougarOS", "CougarOS\CougarOS.csproj", "{EB7715CD-7793-4FF9-96F2-E8F9DD26D511}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D} = {DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{394900B1-8F41-4D68-823D-F868FCF6558B}"
 EndProject
@@ -23,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-languages", "cos-languages\cos-languages.csproj", "{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +63,10 @@ Global
 		{9A87D20C-8A9F-44BD-A2C4-4DA7BC95CD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A87D20C-8A9F-44BD-A2C4-4DA7BC95CD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A87D20C-8A9F-44BD-A2C4-4DA7BC95CD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEFF61FB-D4AA-4485-8130-0406ABB7CC5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

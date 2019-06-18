@@ -48,12 +48,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands.cs" />
+    <Compile Include="ConfigLanguage.cs" />
+    <Compile Include="ConfigPersonalization.cs" />
     <Compile Include="ConfigUsers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="BackgroundColor.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="CougarOS.exe.config" />
     <None Include="Apps.lf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -86,12 +91,22 @@
       <Project>{9a87d20c-8a9f-44bd-a2c4-4da7bc95cd63}</Project>
       <Name>cos-apps</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cos-languages\cos-languages.csproj">
+      <Project>{deff61fb-d4aa-4485-8130-0406abb7cc5d}</Project>
+      <Name>cos-languages</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Apps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Help_AllCommands">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Language.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TextColor.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="USER_DATA_PROTOTYPE.txt" />

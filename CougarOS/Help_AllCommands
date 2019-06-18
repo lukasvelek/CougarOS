@@ -7,3 +7,4 @@ clear - clears the terminal
 config - enables user with elevated permissions configurate the system
 exit - terminates the system
 logout - logs out the current user
+ping [destination_ip] - pings the destination ip with 32 bytes of data
