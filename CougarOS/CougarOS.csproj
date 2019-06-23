@@ -104,7 +104,6 @@
     <Content Include="Apps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="FILESYSTEM.zip" />
     <None Include="Help_AllCommands">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -115,6 +114,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="USER_DATA_PROTOTYPE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FILESYSTEM\home\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
