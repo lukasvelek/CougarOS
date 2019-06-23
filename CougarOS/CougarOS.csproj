@@ -71,6 +71,10 @@
       <Project>{fa43b000-8c69-48fb-abe8-b9fc6b7d5ce3}</Project>
       <Name>cos-api-display</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cos-api-files\cos-api-files.csproj">
+      <Project>{f31d5ecc-163c-4d9a-a850-97a616c816b0}</Project>
+      <Name>cos-api-files</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cos-api-io\cos-api-io.csproj">
       <Project>{0fb6fdd5-5642-45ee-bbbe-ae8fc26bd9f0}</Project>
       <Name>cos-api-io</Name>
@@ -100,6 +104,7 @@
     <Content Include="Apps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="FILESYSTEM.zip" />
     <None Include="Help_AllCommands">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

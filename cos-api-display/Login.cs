@@ -1,13 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+
+using lng = cos_languages;
 
 namespace cos_api_display
 {
     public class Login
     {
+        lng.Translator translator = new lng.Translator();
+
+        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        string language;
+
+        public Login()
+        {
+            if(lng[0].ToLower() == "czech")
+            {
+                language = "Czech";
+            }
+            else
+            {
+                language = "English";
+            }
+        }
 
         public void drawForm()
         {
@@ -19,13 +34,13 @@ namespace cos_api_display
 
         public string getUsername()
         {
-            Console.WriteLine("Your username: ");
+            Console.WriteLine(translator.Translate(language, "login_yourusername") + ": ");
             return Console.ReadLine();
         }
 
         public string getPassword()
         {
-            Console.WriteLine("Your password: ");
+            Console.WriteLine(translator.Translate(language, "login_yourpassword") + ": ");
             return Console.ReadLine();
         }
 

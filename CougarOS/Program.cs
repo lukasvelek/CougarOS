@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Net.NetworkInformation;
+
 using apps = cos_apps;
 using display = cos_api_display;
 using io = cos_api_io;
@@ -8,6 +9,7 @@ using math = cos_api_math;
 using sys = cos_api_system;
 using usr = cos_api_user;
 using lng = cos_languages;
+using files = cos_api_files;
 
 namespace CougarOS
 {
@@ -30,8 +32,8 @@ namespace CougarOS
 
         static string log_filename = "cos_logfile.log";
         static string user_filename = "cos_user.db";
-
-        //static Commands
+        
+        // MODULES DECLARATION
 
         static Commands commands = new Commands();
 
@@ -46,6 +48,10 @@ namespace CougarOS
         static sys.Terminal systerminal = new sys.Terminal();
 
         static usr.NormalUser usrnu = new usr.NormalUser();
+
+        static files.Browser fbrowser = new files.Browser();
+
+        // END OF MODULES DECLARATION
 
         // CONFIG DECLARATION
 
@@ -63,6 +69,8 @@ namespace CougarOS
         // END OF APP DECLARATION
 
         // LANGUAGE DECLARATION
+
+        static lng.Translator translator = new lng.Translator();
 
         static lng.English l_english = new lng.English();
         static lng.Czech l_czech = new lng.Czech();
@@ -82,7 +90,6 @@ namespace CougarOS
             }
         }
 
-        //[Obsolete]
         private static void BootUp()
         {
             //iofile.log(log_file_path, log_filename, "Starting system");
@@ -92,13 +99,22 @@ namespace CougarOS
 
             // language, textColor, backgroundColor
 
-            string[] bg = System.IO.File.ReadAllLines("BackgroundColor.cfg");
-            string[] fg = System.IO.File.ReadAllLines("TextColor.cfg");
-            string[] lng = System.IO.File.ReadAllLines("Language.cfg");
+            string[] bg = System.IO.File.ReadAllLines(@"BackgroundColor.cfg");
+            string[] fg = System.IO.File.ReadAllLines(@"TextColor.cfg");
+            string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
 
             textColor = fg[0];
             backgroundColor = bg[0];
-            language = lng[0];
+            if(lng[0].ToLower() == "czech")
+            {
+                language = "Czech";
+            }
+            else
+            {
+                language = "English";
+            }
+
+            //Console.WriteLine(language);
 
             switch (textColor)
             {
@@ -196,15 +212,8 @@ namespace CougarOS
                     case "CannotLogin":
                         //Console.WriteLine("Sorry, but we can't log you in. Please press enter to try again.");
                         //Console.WriteLine(l_english.err_cannotLogin);
-                        switch(language)
-                        {
-                            case "Czech":
-                                Console.WriteLine(l_czech.err_cannotLogin);
-                                break;
-                            case "English":
-                                Console.WriteLine(l_english.err_cannotLogin);
-                                break;
-                        }
+                        Console.WriteLine(translator.Translate(language, "err_cannotLogin"));
+
                         Console.ReadKey();
                         Login();
                         break;
@@ -216,16 +225,15 @@ namespace CougarOS
         {
             Environment.Exit(0);
         }
-
         private static void Config()
         {
             Console.Clear();
-            Console.WriteLine("{0}/", l_english.cfgmenu_title); // title
+            Console.WriteLine("{0}/", translator.Translate("English", "cfgmenu_title")); // cfgmenu_title
             Console.WriteLine("");
-            Console.WriteLine("1/ {0}", l_english.cfgmenu_users); // users
-            Console.WriteLine("2/ {0}", l_english.cfgmenu_personalization); // personalization
-            Console.WriteLine("3/ {0}", l_english.cfgmenu_language); // language
-            Console.WriteLine("0/ {0}", l_english.cfgmenu_back); // back
+            Console.WriteLine("1/ {0}", translator.Translate(language, "cfgmenu_users")); // cfgmenu_users
+            Console.WriteLine("2/ {0}", translator.Translate(language, "cfgmenu_personalization")); // cfgmenu_personalization
+            Console.WriteLine("3/ {0}", translator.Translate(language, "cfgmenu_language")); // language
+            Console.WriteLine("0/ {0}", translator.Translate(language, "cfgmenu_back")); // back
             string x = Console.ReadLine();
 
             switch (x)
@@ -240,6 +248,9 @@ namespace CougarOS
                 case "3":
                     cfglang.Main();
                     break;
+                case "0":
+                    Desktop();
+                    break;
                 default:
                     Config();
                     break;
@@ -252,10 +263,11 @@ namespace CougarOS
             try
             {
                 PingReply pingresult = ping.Send(ip);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 //Console.WriteLine("There was an error while processing your request!");
-                Console.WriteLine(l_english.err_cannotconnecttopinghost);
+                Console.WriteLine(translator.Translate(language, "err_cannotconnecttopinghost")); // err_cannotconnecttopinghost
                 Desktop();
             }
 
@@ -280,6 +292,10 @@ namespace CougarOS
             // FOR NORMAL USERS
             switch (cmd)
             {
+                case "dir":
+                    break;
+                case "ls":
+                    break;
                 case "calculator":
                     commands.calculator();
                     break;
@@ -296,7 +312,7 @@ namespace CougarOS
                         /*currentUserUsernameLarge = currentUserUsername + "^su";
                         currentPermission = "admin";*/
                         //Console.WriteLine("You already are an administrator!");
-                        Console.WriteLine(l_english.err_alreadyadministrator);
+                        Console.WriteLine(translator.Translate(language, "err_alreadyadministrator")); // err_alreadyadministrator
                     }
                     else
                     {
@@ -308,7 +324,7 @@ namespace CougarOS
                         else
                         {
                             //Console.WriteLine("Entered password isn't right. Please try again!");
-                            Console.WriteLine(l_english.err_badpassword);
+                            Console.WriteLine(translator.Translate(language, "err_badpassword")); // err_badpassword
                             Desktop();
                         }
                     }
@@ -322,12 +338,12 @@ namespace CougarOS
                     else if (currentUserUsername == "root")
                     {
                         //Console.WriteLine("User 'root' can't lose their permissions! Please log in as different user!");
-                        Console.WriteLine(l_english.err_rootcannotlosepermissions);
+                        Console.WriteLine(translator.Translate(language, "err_rootcannotlosepermissions")); // err_rootcannotlosepermissions
                     }
                     else
                     {
                         //Console.Write("You are not an administrator!");
-                        Console.WriteLine(l_english.err_isnotadministrator);
+                        Console.WriteLine(translator.Translate(language, "err_isnotadministrator")); // err_isnotadministrator
                     }
                     break;
                 case "config":
@@ -349,7 +365,7 @@ namespace CougarOS
                     break;
                 case "ping":
                     //Console.WriteLine("Destination IP: ");
-                    Console.WriteLine(l_english.cmd_ping_destinationip);
+                    Console.WriteLine(translator.Translate(language, "cmd_ping_destination")); // cmd_ping_destination
                     string ip = Console.ReadLine();
                     PingIp(ip);
                     break;

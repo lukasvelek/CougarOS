@@ -9,20 +9,31 @@ namespace cos_languages
     public class Czech
     {
 
+        // LOGIN FORM
+
+        public string login_yourusername = "Uzivatelske jmeno";
+        public string login_yourpassword = "Heslo";
+
+        // END OF LOGIN FORM
+
+
+        // CALCULATOR APP DESCRIPTION
+
+        public string app_calculator_number1 = "Prvni cislo";
+        public string app_calculator_number2 = "Druhe cislo";
+        public string app_calculator_function = "Operace";
+
+        // END OF CALCULATOR APP DESCRIPTION
+
+
         // ERRORS
 
-        //public string err_cannotLogin = "Sorry, but we can't log you in. Please press enter to try again.";
         public string err_cannotLogin = "Omlouvame se, ale nemuzeme Vas prihlast. Prosim stisknete enter a zkuste znovu.";
-        //public string err_cannotconnecttopinghost = "There was an error while processing your request!";
         public string err_cannotconnecttopinghost = "Objevila se chyba pri zpracovavani Vaseho pozadavku.";
 
-        //public string err_alreadyadministrator = "You already are an administrator!";
         public string err_alreadyadministrator = "Jiz jste administrator!";
-        //public string err_badpassword = "Entered password isn't right. Please try again!";
         public string err_badpassword = "Zadali jste spatne heslo! Prosim zkuste znovu.";
-        //public string err_rootcannotlosepermissions = "User 'root' can't lose their permissions! Please log in as different user!";
         public string err_rootcannotlosepermissions = "Uzivatel 'root' nemuze prijit o sve pravomoce! Prosim prihlaste se jako jiny uzivatel.";
-        //public string err_isnotadministrator = "You are not an administrator!";
         public string err_isnotadministrator = "Nejste administrator!";
 
         // END OF ERRORS
@@ -30,56 +41,62 @@ namespace cos_languages
 
         // CONFIG MENU DESCRIPTION
 
-        public string cfgmenu_title = "Config";
-        public string cfgmenu_users = "Users";
-        public string cfgmenu_personalization = "Personalization";
-        public string cfgmenu_language = "Language";
-        public string cfgmenu_back = "Back";
+        public string cfgmenu_title = "Nastaveni";
+        public string cfgmenu_users = "Uzivatele";
+        public string cfgmenu_personalization = "Prizpusobeni";
+        public string cfgmenu_language = "Jazyk";
+        public string cfgmenu_back = "Zpet";
 
 
-        public string cfgmenu_users_title = "Users";
-        public string cfgmenu_users_listallusers = "List all users";
-        public string cfgmenu_users_addauser = "Add a user";
+        public string cfgmenu_users_title = "Uzivatele";
+        public string cfgmenu_users_listallusers = "Vsichni uzivatele";
+        public string cfgmenu_users_addauser = "Pridat uzivatele";
 
-        public string cfgmenu_users_listallusers_title = "List all users";
-        public string cfgmenu_users_listallusers_selectauser = "Select a user";
-        public string cfgmenu_users_listallusers_enterusername = "Enter the username";
-        public string cfgmenu_users_listallusers_username = "Username";
+        public string cfgmenu_users_listallusers_title = "Vsichni uzivatele";
+        public string cfgmenu_users_listallusers_selectauser = "Vybrat uzivatele";
+        public string cfgmenu_users_listallusers_enterusername = "Zadejte jmeno";
+        public string cfgmenu_users_listallusers_username = "Jmeno";
 
 
-        public string cfgmenu_personalization_title = "Personalization";
-        public string cfgmenu_personalization_colors = "Colors";
-        public string cfgmenu_personalization_titles = "Titles";
+        public string cfgmenu_personalization_title = "Prizpusobeni";
+        public string cfgmenu_personalization_colors = "Barvy";
+        public string cfgmenu_personalization_titles = "Nadpisy";
 
-        public string cfgmenu_personalization_colors_title = "Colors";
-        public string cfgmenu_personalization_colors_textcolor = "Text color";
-        public string cfgmenu_personalization_colors_backgroundcolor = "Background color";
+        public string cfgmenu_personalization_colors_title = "Barvy";
+        public string cfgmenu_personalization_colors_textcolor = "Barva textu";
+        public string cfgmenu_personalization_colors_backgroundcolor = "Barva pozadi";
 
-        public string cfgmenu_personalization_colors_textcolor_title = "Text color";
-        public string cfgmenu_personalization_colors_textcolor_chooseacolor = "Choose a color";
+        public string cfgmenu_personalization_colors_textcolor_title = "Barva textu";
+        public string cfgmenu_personalization_colors_textcolor_chooseacolor = "Vyberte barvu";
 
-        public string cfgmenu_personalization_colors_backgroundcolor_title = "Background color";
-        public string cfgmenu_personalization_colors_backgroundcolor_chooseacolor = "Choose a color";
+        public string cfgmenu_personalization_colors_backgroundcolor_title = "Barva pozadi";
+        public string cfgmenu_personalization_colors_backgroundcolor_chooseacolor = "Vyberte barvu";
+
+
+        public string cfgmenu_language_title = "Jazyk";
+        public string cfgmenu_language_choosealanguage = "Vyberte jazyk";
+        public string cfgmenu_language_english = "Anglictina (English)";
+        public string cfgmenu_language_czech = "Cestina";
 
         // END OF CONFIG MENU DESCRIPTION
 
 
         // COLOR DECLARATION
 
-        public string color_red = "Red";
-        public string color_green = "Green";
-        public string color_blue = "Blue";
-        public string color_black = "Black";
-        public string color_white = "White";
-        public string color_yellow = "Yellow";
-        public string color_magenta = "Magenta";
+        public string color_red = "Cervena";
+        public string color_green = "Zelena";
+        public string color_blue = "Modra";
+        public string color_black = "Cerna";
+        public string color_white = "Bila";
+        public string color_yellow = "Zluta";
+        public string color_magenta = "Fialova";
 
         // END OF COLOR DECLARATION
 
 
         // COMMAND DESCRIPTIONS
 
-        public string cmd_ping_destinationip = "Destination IP: ";
+        public string cmd_ping_destinationip = "Cilova IP: ";
 
         // END OF COMMAND DESCRIPTIONS
 

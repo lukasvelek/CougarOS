@@ -1,21 +1,37 @@
 ﻿using System;
+using System.IO;
 using lng = cos_languages;
 
 namespace CougarOS
 {
     public class ConfigPersonalization
     {
-
+        lng.Translator translator = new lng.Translator();
         lng.English l_english = new lng.English();
+
+        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        string language;
+
+        public ConfigPersonalization()
+        {
+            if (lng[0].ToLower() == "czech")
+            {
+                language = "Czech";
+            }
+            else
+            {
+                language = "English";
+            }
+        }
 
         public void Main()
         {
             Console.Clear();
-            Console.WriteLine("{0}/{1}/", l_english.cfgmenu_title, l_english.cfgmenu_personalization_title);
+            Console.WriteLine("{0}/{1}/", translator.Translate(language, "cfgmenu_title"), translator.Translate(language, "cfgmenu_personalization_title"));
             Console.WriteLine("");
-            Console.WriteLine("1/ {0}", l_english.cfgmenu_personalization_colors);
-            Console.WriteLine("2/ {0}", l_english.cfgmenu_personalization_titles);
-            Console.WriteLine("0/ {0}", l_english.cfgmenu_back);
+            Console.WriteLine("1/ {0}", translator.Translate(language, "cfgmenu_personalization_colors"));
+            Console.WriteLine("2/ {0}", translator.Translate(language, "cfgmenu_personalization_titles"));
+            Console.WriteLine("0/ {0}", translator.Translate(language, "cfgmenu_back"));
             string option = Console.ReadLine();
 
             switch (option)
@@ -38,11 +54,11 @@ namespace CougarOS
         private void Colors()
         {
             Console.Clear();
-            Console.WriteLine("{0}/{1}/{2}/", l_english.cfgmenu_title, l_english.cfgmenu_personalization_title, l_english.cfgmenu_personalization_colors_title);
+            Console.WriteLine("{0}/{1}/{2}/", translator.Translate(language, "cfgmenu_title"), translator.Translate(language, "cfgmenu_personalization_title"), translator.Translate(language, "cfgmenu_personalization_colors_title"));
             Console.WriteLine("");
-            Console.WriteLine("1/ {0}", l_english.cfgmenu_personalization_colors_textcolor);
-            Console.WriteLine("2/ {0}", l_english.cfgmenu_personalization_colors_backgroundcolor);
-            Console.WriteLine("0/ {0}", l_english.cfgmenu_back);
+            Console.WriteLine("1/ {0}", translator.Translate(language, "cfgmenu_personalization_colors_textcolor"));
+            Console.WriteLine("2/ {0}", translator.Translate(language, "cfgmenu_personalization_colors_backgroundcolor"));
+            Console.WriteLine("0/ {0}", translator.Translate(language, "cfgmenu_back"));
             string option = Console.ReadLine();
 
             switch (option)
@@ -112,17 +128,17 @@ namespace CougarOS
         private void ColorBackground()
         {
             Console.Clear();
-            Console.WriteLine("{0}/{1}/{2}/{3}/", l_english.cfgmenu_title, l_english.cfgmenu_personalization_title, l_english.cfgmenu_personalization_colors_title, l_english.cfgmenu_personalization_colors_backgroundcolor_title); // cfg, person, clr, bg
+            Console.WriteLine("{0}/{1}/{2}/{3}/", translator.Translate(language, "cfgmenu_title"), translator.Translate(language, "cfgmenu_personalization_title"), translator.Translate(language, "cfgmenu_personalization_colors_title"), translator.Translate(language, "cfgmenu_personalization_colors_backgroundcolor_title")); // cfg, person, clr, bg
             Console.WriteLine("");
-            Console.WriteLine("{0}: ", l_english.cfgmenu_personalization_colors_backgroundcolor_chooseacolor);
-            Console.WriteLine("1/ {0}", l_english.color_green); // green
-            Console.WriteLine("2/ {0}", l_english.color_black); // black
-            Console.WriteLine("3/ {0}", l_english.color_blue); // blue
-            Console.WriteLine("4/ {0}", l_english.color_white); // white
-            Console.WriteLine("5/ {0}", l_english.color_yellow); // yellow
-            Console.WriteLine("6/ {0}", l_english.color_red); // red
-            Console.WriteLine("7/ {0}", l_english.color_magenta); // magenta
-            Console.WriteLine("0/ {0}", l_english.cfgmenu_back);
+            Console.WriteLine("{0}: ", translator.Translate(language, "cfgmenu_personalization_colors_backgroundcolor_chooseacolor"));
+            Console.WriteLine("1/ {0}", translator.Translate(language, "color_green")); // green
+            Console.WriteLine("2/ {0}", translator.Translate(language, "color_black")); // black
+            Console.WriteLine("3/ {0}", translator.Translate(language, "color_blue")); // blue
+            Console.WriteLine("4/ {0}", translator.Translate(language, "color_white")); // white
+            Console.WriteLine("5/ {0}", translator.Translate(language, "color_yellow")); // yellow
+            Console.WriteLine("6/ {0}", translator.Translate(language, "color_red")); // red
+            Console.WriteLine("7/ {0}", translator.Translate(language, "color_magenta")); // magenta
+            Console.WriteLine("0/ {0}", translator.Translate(language, "cfgmenu_back"));
             string option = Console.ReadLine();
 
             switch (option)

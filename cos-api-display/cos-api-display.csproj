@@ -45,5 +45,11 @@
     <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cos-languages\cos-languages.csproj">
+      <Project>{deff61fb-d4aa-4485-8130-0406abb7cc5d}</Project>
+      <Name>cos-languages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

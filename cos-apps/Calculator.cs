@@ -5,19 +5,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
+using lng = cos_languages;
+
 namespace cos_apps
 {
     public class Calculator
     {
 
+        lng.Translator translator = new lng.Translator();
+
+        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        string language;
+
+        public Calculator()
+        {
+            if(lng[0].ToLower() == "czech")
+            {
+                language = "Czech";
+            }
+            else
+            {
+                language = "English";
+            }
+        }
+
         public double loadNumbers()
         {
             Console.Clear();
-            Console.WriteLine("Number 1: ");
+            Console.WriteLine("{0}: ", translator.Translate(language, "app_calculator_number1"));
             int x = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Number 2: ");
+            Console.WriteLine("{0}: ", translator.Translate(language, "app_calculator_number2"));
             int y = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Function (+,-,*,/): ");
+            Console.WriteLine("{0} (+,-,*,/): ", translator.Translate(language, "app_calculator_function"));
             string f = Console.ReadLine();
 
             switch (f)

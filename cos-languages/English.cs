@@ -9,6 +9,23 @@ namespace cos_languages
     public class English
     {
 
+        // LOGIN FORM
+
+        public string login_yourusername = "Your username";
+        public string login_yourpassword = "Your password";
+
+        // END OF LOGIN FORM
+
+
+        // CALCULATOR APP DESCRIPTION
+
+        public string app_calculator_number1 = "Number 1";
+        public string app_calculator_number2 = "Number 2";
+        public string app_calculator_function = "Function";
+
+        // END OF CALCULATOR APP DESCRIPTION
+
+
         // ERRORS
 
         public string err_cannotLogin = "Sorry, but we can't log you in. Please press enter to try again.";
@@ -54,6 +71,12 @@ namespace cos_languages
 
         public string cfgmenu_personalization_colors_backgroundcolor_title = "Background color";
         public string cfgmenu_personalization_colors_backgroundcolor_chooseacolor = "Choose a color";
+
+
+        public string cfgmenu_language_title = "Language";
+        public string cfgmenu_language_choosealanguage = "Choose a language";
+        public string cfgmenu_language_english = "English";
+        public string cfgmenu_language_czech = "Czech";
 
         // END OF CONFIG MENU DESCRIPTION
 

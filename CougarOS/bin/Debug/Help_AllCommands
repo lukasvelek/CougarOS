@@ -1,6 +1,6 @@
-﻿help - Lists all commands and shows description for them
-ls - Lists content of current directory
-dir [destination_directory] - changes directory
+﻿help - lists all commands and shows description for them
+ls - lists content of current directory
+dir - changes directory
 su - grants administrator access to admin-only commands
 desu - denies administrator access to admin-only commands
 clear - clears the terminal
