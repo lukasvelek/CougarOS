@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using apps = cos_apps;
+using display = cos_api_display;
 using io = cos_api_io;
 using math = cos_api_math;
-using display = cos_api_display;
 using sys = cos_api_system;
 using usr = cos_api_user;
-using apps = cos_apps;
 
 namespace CougarOS
 {
@@ -32,12 +27,54 @@ namespace CougarOS
 
         static apps.Calculator appCalculator = new apps.Calculator();
         static apps.Help appHelp = new apps.Help();
+        static apps.About appAbout = new apps.About();
+        static apps.Clock appClock = new apps.Clock();
+        static apps.Notepad appNotepad = new apps.Notepad();
+        static apps.TextBrowser appTextBrowser = new apps.TextBrowser();
 
         // END OF APP DECLARATION
 
+        public void changelog()
+        {
+            string[] changelog = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\CHANGELOG");
+
+            int max = changelog.Length;
+
+            for (int i = 0; i < max; i++)
+            {
+                Console.WriteLine(changelog[i]);
+            }
+
+            return;
+        }
+
+        public void textbrowser()
+        {
+            appTextBrowser.Main();
+        }
+
+        public void notepad()
+        {
+            appNotepad.Main();
+            return;
+        }
+
+        public void clock()
+        {
+            appClock.Main();
+            return;
+        }
+
+        public void about()
+        {
+            appAbout.ShowAbout();
+            return;
+        }
+
         public void calculator()
         {
-            Console.WriteLine(appCalculator.loadNumbers());
+            //Console.WriteLine(appCalculator.loadNumbers());
+            appCalculator.Main();
             return;
         }
 

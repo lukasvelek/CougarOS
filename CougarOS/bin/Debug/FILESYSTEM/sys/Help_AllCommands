@@ -1,0 +1,14 @@
+﻿help - lists all commands and shows description for them
+ls - lists content of current directory
+dir - changes directory
+su - grants administrator access to admin-only commands
+desu - denies administrator access to admin-only commands
+clear - clears the terminal
+config - enables user with elevated permissions configurate the system
+exit - terminates the system
+logout - logs out the current user
+ping - pings the destination ip with 32 bytes of data
+mf - creates a file
+about - displays information about the operating system
+changelog - displays the os changelog
+sudo - allows performing super-user-only actions

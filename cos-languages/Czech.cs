@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cos_languages
+﻿namespace cos_languages
 {
     public class Czech
     {
@@ -19,9 +13,19 @@ namespace cos_languages
 
         // CALCULATOR APP DESCRIPTION
 
+        // -- OLD --
         public string app_calculator_number1 = "Prvni cislo";
         public string app_calculator_number2 = "Druhe cislo";
         public string app_calculator_function = "Operace";
+
+        // -- NEW --
+        public string app_calculator_number = "Cislo";
+        public string app_calculator_operation = "Operace";
+        public string app_calculator_continue = "Pokracovat";
+        public string app_calculator_yes = "Ano";
+        public string app_calculator_no = "Ne";
+        public string app_calculator_theresultis = "Vysledek je";
+        public string app_calculator_pressentertogoback = "Stisknete enter pro navraceni";
 
         // END OF CALCULATOR APP DESCRIPTION
 
@@ -104,6 +108,15 @@ namespace cos_languages
         // HELP DESCRIPTION
 
         // END OF HELP DESCRIPTION
+
+
+        // CLOCK APP
+
+        public string app_clock_currenttime = "Aktualni cas";
+        public string app_clock_setalarm = "Nastavit budik";
+        public string app_clock_back = "Zpet";
+
+        // END OF CLOCK APP
 
     }
 }

@@ -1,0 +1,2 @@
+﻿.document - Document file
+.cfg - Config file

@@ -1,38 +1,20 @@
 ﻿using System;
-using System.Configuration;
 using System.Net.NetworkInformation;
 
 using apps = cos_apps;
 using display = cos_api_display;
+using files = cos_api_files;
 using io = cos_api_io;
+using lng = cos_languages;
 using math = cos_api_math;
 using sys = cos_api_system;
 using usr = cos_api_user;
-using lng = cos_languages;
-using files = cos_api_files;
+using cfg = cos_api_config;
 
 namespace CougarOS
 {
     class Program
     {
-        static string language;
-        static string textColor;
-        static string backgroundColor;
-
-        static string currentUserUsername;
-        static string currentUserPassword;
-        static string currentUserUsernameLarge;
-        static string currentLocation = "/home/";
-        static string currentPermission = "user";
-
-        static bool hasBootedUp = false;
-
-        static string log_file_path = @"c:\temp\";
-        static string user_file_path = @"c:\temp\";
-
-        static string log_filename = "cos_logfile.log";
-        static string user_filename = "cos_user.db";
-        
         // MODULES DECLARATION
 
         static Commands commands = new Commands();
@@ -46,25 +28,38 @@ namespace CougarOS
 
         static sys.Thread systhread = new sys.Thread();
         static sys.Terminal systerminal = new sys.Terminal();
+        static sys.Register sysregister = new sys.Register();
+        static sys.Installation sysinstall = new sys.Installation();
+        static sys.Boot sysboot = new sys.Boot();
 
         static usr.NormalUser usrnu = new usr.NormalUser();
+        static usr.SuperUser usrsu = new usr.SuperUser();
 
         static files.Browser fbrowser = new files.Browser();
 
         // END OF MODULES DECLARATION
+
+        // MASTER CONFIG API DECLARATION
+
+        static cfg.System cfgapisys = new cfg.System();
+        static cfg.User cfgapiusr = new cfg.User();
+
+        // END OF MASTER CONFIG API DECLARATION
 
         // CONFIG DECLARATION
 
         static ConfigUsers cfgusers = new ConfigUsers();
         static ConfigPersonalization cfgperson = new ConfigPersonalization();
         static ConfigLanguage cfglang = new ConfigLanguage();
+        static ConfigSystem cfgsys = new ConfigSystem();
 
         // END OF CONFIG DECLARATION
 
-        // APP DECLARATION
+        // APP DECLARATION - isn't needed though
 
         static apps.Calculator appCalculator = new apps.Calculator();
         static apps.Help appHelp = new apps.Help();
+        static apps.Clock appClock = new apps.Clock();
 
         // END OF APP DECLARATION
 
@@ -79,9 +74,14 @@ namespace CougarOS
 
         static void Main()
         {
-            if (!hasBootedUp)
+            if (!System.IO.File.Exists(@"FILESYSTEM\sys\POST_INSTALLATION.sys"))
             {
-                //iofile.checkLogFile(log_file_path, log_filename);
+                sysinstall.Main();
+                Main();
+            }
+
+            if (!cfgapisys.HasBootedUp)
+            {
                 BootUp();
             }
             else
@@ -92,31 +92,25 @@ namespace CougarOS
 
         private static void BootUp()
         {
-            //iofile.log(log_file_path, log_filename, "Starting system");
-            displayboot.drawLogo();
+            sysboot.PreConfigLoad();
 
             // CONFIGURATION LOADING
 
-            // language, textColor, backgroundColor
+            string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
+            string[] colors = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Color.cfg");
 
-            string[] bg = System.IO.File.ReadAllLines(@"BackgroundColor.cfg");
-            string[] fg = System.IO.File.ReadAllLines(@"TextColor.cfg");
-            string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
-
-            textColor = fg[0];
-            backgroundColor = bg[0];
-            if(lng[0].ToLower() == "czech")
+            cfgapisys.TextColor = colors[1];
+            cfgapisys.BackgroundColor = colors[0];
+            if (lng[0].ToLower() == "czech")
             {
-                language = "Czech";
+                cfgapisys.Language = "Czech";
             }
             else
             {
-                language = "English";
+                cfgapisys.Language = "English";
             }
 
-            //Console.WriteLine(language);
-
-            switch (textColor)
+            switch (cfgapisys.TextColor)
             {
                 case "green":
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -141,7 +135,7 @@ namespace CougarOS
                     break;
             }
 
-            switch (backgroundColor)
+            switch (cfgapisys.BackgroundColor)
             {
                 case "green":
                     Console.BackgroundColor = ConsoleColor.Green;
@@ -168,9 +162,9 @@ namespace CougarOS
 
             // END OF CONFIGURATION LOADING
 
-            systhread.sleep(5);
+            sysboot.PostConfigLoad();
 
-            hasBootedUp = true;
+            cfgapisys.HasBootedUp = true;
             Main();
         }
 
@@ -180,28 +174,27 @@ namespace CougarOS
             {
                 Console.Clear();
                 displaylogin.drawForm();
-                currentUserUsername = displaylogin.getUsername();
-                currentUserPassword = displaylogin.getPassword();
+                cfgapiusr.CurrentUserUsername = displaylogin.getUsername();
+                cfgapiusr.CurrentUserPassword = displaylogin.getPassword();
 
-                if (iofile.checkUserData(user_file_path, user_filename, currentUserUsername, currentUserPassword))
+                if (iofile.checkUserData(@"FILESYSTEM\sys\", "cos_user.db", cfgapiusr.CurrentUserUsername, cfgapiusr.CurrentUserPassword))
                 {
-                    //iofile.log(log_file_path, log_filename, "User has successfully logged in!");
-                    currentLocation = "/home/";
+                    cfgapisys.CurrentLocation = "/home/";
 
-                    if (iofile.checkAdmin(user_file_path, user_filename, currentUserUsername, currentUserPassword))
+                    if (iofile.checkAdmin(@"FILESYSTEM\sys\", "cos_user.db", cfgapiusr.CurrentUserUsername, cfgapiusr.CurrentUserPassword))
                     {
-                        currentPermission = "admin";
+                        cfgapiusr.CurrentUserPermission = "admin";
                     }
                     else
                     {
-                        currentPermission = "user";
+                        cfgapiusr.CurrentUserPermission = "user";
                     }
 
+                    Console.Clear();
                     Desktop();
                 }
                 else
                 {
-                    //iofile.log(log_file_path, log_filename, "User has not successfully logged in!");
                     Login("CannotLogin");
                 }
             }
@@ -210,9 +203,7 @@ namespace CougarOS
                 switch (error)
                 {
                     case "CannotLogin":
-                        //Console.WriteLine("Sorry, but we can't log you in. Please press enter to try again.");
-                        //Console.WriteLine(l_english.err_cannotLogin);
-                        Console.WriteLine(translator.Translate(language, "err_cannotLogin"));
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_cannotLogin"));
 
                         Console.ReadKey();
                         Login();
@@ -228,28 +219,35 @@ namespace CougarOS
         private static void Config()
         {
             Console.Clear();
-            Console.WriteLine("{0}/", translator.Translate("English", "cfgmenu_title")); // cfgmenu_title
+            Console.WriteLine("{0}/", translator.Translate("English", "cfgmenu_title"));
             Console.WriteLine("");
-            Console.WriteLine("1/ {0}", translator.Translate(language, "cfgmenu_users")); // cfgmenu_users
-            Console.WriteLine("2/ {0}", translator.Translate(language, "cfgmenu_personalization")); // cfgmenu_personalization
-            Console.WriteLine("3/ {0}", translator.Translate(language, "cfgmenu_language")); // language
-            Console.WriteLine("0/ {0}", translator.Translate(language, "cfgmenu_back")); // back
+            Console.WriteLine("1/ {0}", translator.Translate(cfgapisys.Language, "cfgmenu_users"));
+            Console.WriteLine("2/ {0}", translator.Translate(cfgapisys.Language, "cfgmenu_personalization"));
+            Console.WriteLine("3/ {0}", translator.Translate(cfgapisys.Language, "cfgmenu_language"));
+            Console.WriteLine("4/ {0}", translator.Translate(cfgapisys.Language, "cfgmenu_system"));
+            Console.WriteLine("0/ {0}", translator.Translate(cfgapisys.Language, "cfgmenu_back"));
             string x = Console.ReadLine();
 
             switch (x)
             {
                 case "1":
-                    //ConfigUsers();
                     cfgusers.Main();
+                    Config();
                     break;
                 case "2":
                     cfgperson.Main();
+                    Config();
                     break;
                 case "3":
                     cfglang.Main();
+                    Config();
+                    break;
+                case "4":
+                    cfgsys.Main();
                     break;
                 case "0":
                     Desktop();
+                    Config();
                     break;
                 default:
                     Config();
@@ -264,10 +262,9 @@ namespace CougarOS
             {
                 PingReply pingresult = ping.Send(ip);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //Console.WriteLine("There was an error while processing your request!");
-                Console.WriteLine(translator.Translate(language, "err_cannotconnecttopinghost")); // err_cannotconnecttopinghost
+                Console.WriteLine(translator.Translate(cfgapisys.Language, "err_cannotconnecttopinghost"));
                 Desktop();
             }
 
@@ -276,15 +273,15 @@ namespace CougarOS
 
         private static void Desktop()
         {
-            if (currentPermission == "admin")
+            if (cfgapiusr.CurrentUserPermission == "admin")
             {
-                currentUserUsernameLarge = currentUserUsername + "^su";
+                cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername + "^su";
 
-                Console.Write(currentUserUsernameLarge + "@" + currentLocation + "$ ");
+                Console.Write(cfgapiusr.CurrentUserUsernameLarge + "@" + cfgapisys.CurrentLocation + "$ ");
             }
             else
             {
-                Console.Write(currentUserUsername + "@" + currentLocation + "$ ");
+                Console.Write(cfgapiusr.CurrentUserUsername + "@" + cfgapisys.CurrentLocation + "$ ");
             }
 
             string cmd = Console.ReadLine();
@@ -292,62 +289,51 @@ namespace CougarOS
             // FOR NORMAL USERS
             switch (cmd)
             {
+                case "mf":
+                    Console.WriteLine("Name of newly created file: ");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Where to save the file: ");
+
+                    // List all directories available to the user
+
+                    int i = 0;
+
+                    string[] linez = System.IO.File.ReadAllLines(@"FILESYSTEM\available_folders");
+
+                    foreach (string line in linez)
+                    {
+                        i++;
+
+                        Console.WriteLine("{0}/ " + line, i);
+                    }
+
+                    Console.WriteLine("0/ Back");
+
+                    string subPath = Console.ReadLine();
+
+                    switch (subPath)
+                    {
+                        //case "1":
+                    }
+
+                    break;
                 case "dir":
+                    Console.WriteLine("Change directory to: ");
+                    string newDir = Console.ReadLine();
+                    fbrowser.ChangeDirectory(newDir);
+
                     break;
                 case "ls":
-                    break;
-                case "calculator":
-                    commands.calculator();
-                    break;
-                case "help":
-                    commands.help();
+                    Console.WriteLine("Directory: ");
+                    string dir = Console.ReadLine();
+                    fbrowser.ListContentOfDirectory(dir);
+
                     break;
                 case "clear":
                     commands.clear();
                     break;
-                case "su":
-                    if (currentPermission == "admin")
-                    {
-                        // isn't needed
-                        /*currentUserUsernameLarge = currentUserUsername + "^su";
-                        currentPermission = "admin";*/
-                        //Console.WriteLine("You already are an administrator!");
-                        Console.WriteLine(translator.Translate(language, "err_alreadyadministrator")); // err_alreadyadministrator
-                    }
-                    else
-                    {
-                        if (systerminal.checkPassword(currentUserUsername))
-                        {
-                            currentUserUsernameLarge = currentUserUsername + "^su";
-                            currentPermission = "admin";
-                        }
-                        else
-                        {
-                            //Console.WriteLine("Entered password isn't right. Please try again!");
-                            Console.WriteLine(translator.Translate(language, "err_badpassword")); // err_badpassword
-                            Desktop();
-                        }
-                    }
-                    break;
-                case "desu":
-                    if (currentPermission == "admin" && currentUserUsername != "root")
-                    {
-                        currentUserUsernameLarge = currentUserUsername;
-                        currentPermission = "user";
-                    }
-                    else if (currentUserUsername == "root")
-                    {
-                        //Console.WriteLine("User 'root' can't lose their permissions! Please log in as different user!");
-                        Console.WriteLine(translator.Translate(language, "err_rootcannotlosepermissions")); // err_rootcannotlosepermissions
-                    }
-                    else
-                    {
-                        //Console.Write("You are not an administrator!");
-                        Console.WriteLine(translator.Translate(language, "err_isnotadministrator")); // err_isnotadministrator
-                    }
-                    break;
                 case "config":
-                    if (currentPermission == "admin")
+                    if (cfgapiusr.CurrentUserPermission == "admin")
                     {
                         Config();
                     }
@@ -364,13 +350,116 @@ namespace CougarOS
                     Exit();
                     break;
                 case "ping":
-                    //Console.WriteLine("Destination IP: ");
-                    Console.WriteLine(translator.Translate(language, "cmd_ping_destination")); // cmd_ping_destination
+                    Console.WriteLine(translator.Translate(cfgapisys.Language, "cmd_ping_destination"));
                     string ip = Console.ReadLine();
                     PingIp(ip);
                     break;
+                case "changelog":
+                    commands.changelog();
+                    break;
+
+                // SU && DESU
+                case "su":
+                    if (cfgapiusr.CurrentUserPermission == "admin")
+                    {
+                        // isn't needed
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_alreadyadministrator"));
+                    }
+                    else
+                    {
+                        /*if (systerminal.checkPassword(cfgapiusr.CurrentUserUsername))
+                        {
+                            cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername + "^su";
+                            currentPermission = "admin";
+                        }
+                        else
+                        {
+                            Console.WriteLine(translator.Translate(cfgapisys.Language, "err_badpassword"));
+                            Desktop();
+                        }*/
+
+                        if (systerminal.checkSudoPassword())
+                        {
+                            cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername + "^su";
+                            cfgapiusr.CurrentUserPermission = "admin";
+                        }
+                        else
+                        {
+                            Console.WriteLine(translator.Translate(cfgapisys.Language, "err_badpassword"));
+                            Desktop();
+                        }
+                    }
+                    break;
+                case "desu":
+                    if (cfgapiusr.CurrentUserPermission == "admin" && cfgapiusr.CurrentUserUsername != "root")
+                    {
+                        cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername;
+                        cfgapiusr.CurrentUserPermission = "user";
+                    }
+                    else if (cfgapiusr.CurrentUserUsername == "root")
+                    {
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_rootcannotlosepermissions")); 
+                    }
+                    else
+                    {
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_isnotadministrator"));
+                    }
+                    break;
+
+                // SUDO
+                case "sudo":
+                    if (cfgapiusr.CurrentUserPermission == "admin")
+                    {
+                        usrsu.Sudo();
+                    }
+                    else
+                    {
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_isnotadministrator"));
+                    }
+                    break;
+                case "sudo -update":
+                    if (cfgapiusr.CurrentUserPermission == "admin")
+                    {
+                        usrsu.Sudo("update");
+                    }
+                    else
+                    {
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_isnotadministrator"));
+                    }
+                    break;
+                case "sudo -register":
+                    if (cfgapiusr.CurrentUserPermission == "admin")
+                    {
+                        sysregister.Main();
+                    }
+                    else
+                    {
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_isnotadministrator"));
+                    }
+                    break;
+
+                // APPS
+                case "about":
+                    commands.about();
+                    break;
+                case "calculator":
+                    commands.calculator();
+                    break;
+                case "help":
+                    commands.help();
+                    break;
+                case "clock":
+                    commands.clock();
+                    break;
+                case "notepad":
+                    commands.notepad();
+                    break;
+                case "textbrowser":
+                    commands.textbrowser();
+                    break;
 
                 default:
+                    Console.WriteLine("{0}: '{1}'", translator.Translate(cfgapisys.Language, "err_nocommandfoundfor"), cmd);
                     Desktop();
                     break;
             }

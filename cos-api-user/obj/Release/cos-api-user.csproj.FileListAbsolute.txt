@@ -1,0 +1,9 @@
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Release\cos-api-user.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Release\cos-api-user.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Release\cos-languages.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Release\cos-languages.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Release\cos-api-user.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Release\cos-api-user.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Release\cos-api-user.csproj.CopyComplete
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Release\cos-api-user.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Release\cos-api-user.pdb

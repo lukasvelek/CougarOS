@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.IO.Compression;
 
 namespace cos_api_files
 {
@@ -13,11 +7,12 @@ namespace cos_api_files
 
         /*
         
-            The whole filesystem is saved in the 'FILESYSTEM.zip' file and is compressed.
+            All the files being contained in a directory are being listed in a same called file
+
+            /home/ - base directory of users
+            /home/root/ - base directory of user 'root'
              
         */
-
-        private string filesystemFile = @"FILESYSTEM.zip";
 
         public string directory { get; set; }
         public string directoryShort { get; set; }
@@ -27,14 +22,26 @@ namespace cos_api_files
             directory = "/home/";
             directoryShort = "home";
         }
-        
+
+        public void ChangeDirectory(string newDir)
+        {
+            directory = newDir;
+            directoryShort = newDir.Replace("/", "-");
+        }
+
         public void ListContentOfDirectory(string dir)
         {
-            switch (dir)
+            // for example: /home/
+            string dirSuper = dir.Replace("/","\\");
+
+            System.IO.DirectoryInfo d = new System.IO.DirectoryInfo(@"FILESYSTEM" + dirSuper);
+            System.IO.FileInfo[] Files = d.GetFiles("*.*");
+
+            string[] directories = System.IO.Directory.GetDirectories(@"FILESYSTEM" + dirSuper);
+
+            foreach(string f in directories)
             {
-                case "/home/":
-                    
-                    break;
+                Console.WriteLine(f);
             }
         }
 

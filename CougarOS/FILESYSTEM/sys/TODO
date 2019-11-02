@@ -1,0 +1,42 @@
+﻿# WORK IN PROGRESS
+- make a general config api
+
+
+
+
+
+# No. 1 Priority
+- master api
+	- filesystem api
+	- math api
+	- system api
+
+
+
+
+
+# No. 2 Priority
+- create user's folder + subfolders during installation
+- each user has their own config
+- if any necessary file is missing, repair
+
+
+
+
+
+# No. 3 Priority
+- rewrite the 'dir' and 'ls' function
+	- maybe not?
+- recreate the whole FILESYSTEM system
+	- maybe not?
+- 'su' and 'desu' in 'SuperUser.cs'
+- clean the code
+- rework the Calculator
+
+
+
+
+
+# TO FINISH
+- add, list and remove users
+- change permissions for each user

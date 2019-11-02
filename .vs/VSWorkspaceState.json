@@ -3,8 +3,14 @@
     "",
     "\\CougarOS",
     "\\CougarOS\\bin",
-    "\\CougarOS\\bin\\Debug"
+    "\\CougarOS\\bin\\Debug",
+    "\\CougarOS\\bin\\Debug\\FILESYSTEM",
+    "\\CougarOS\\bin\\Debug\\FILESYSTEM\\sys",
+    "\\CougarOS\\FILESYSTEM",
+    "\\CougarOS\\FILESYSTEM\\sys",
+    "\\CougarOS\\FILESYSTEM\\sys\\config",
+    "\\CougarOS\\FILESYSTEM\\sys\\resources"
   ],
-  "SelectedNode": "\\CougarOS\\bin\\Release",
+  "SelectedNode": "\\CougarOS\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

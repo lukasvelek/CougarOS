@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using lng = cos_languages;
 
 namespace CougarOS
@@ -9,7 +8,7 @@ namespace CougarOS
         lng.Translator translator = new lng.Translator();
         lng.English l_english = new lng.English();
 
-        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
         string language;
 
         public ConfigPersonalization()
@@ -201,7 +200,16 @@ namespace CougarOS
                     break;
             }
 
-            System.IO.File.WriteAllText(@"TextColor.cfg", color);
+            //System.IO.File.WriteAllText(@"TextColor.cfg", color);
+
+            // fg1, bg0
+            string[] colors = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Color.cfg");
+            string bg = colors[0];
+            string fg = color;
+
+            string[] newColors = { bg, fg };
+
+            System.IO.File.WriteAllLines(@"FILESYSTEM\sys\config\Color.cfg", newColors);
 
             ColorText();
         }
@@ -233,7 +241,13 @@ namespace CougarOS
                     break;
             }
 
-            System.IO.File.WriteAllText(@"BackgroundColor.cfg", color);
+            string[] colors = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Color.cfg");
+            string bg = color;
+            string fg = colors[1];
+
+            string[] newColors = { bg, fg };
+
+            System.IO.File.WriteAllLines(@"FILESYSTEM\sys\config\Color.cfg", newColors);
 
             ColorBackground();
         }

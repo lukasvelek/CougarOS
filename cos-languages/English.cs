@@ -1,13 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cos_languages
+﻿namespace cos_languages
 {
     public class English
     {
+
+        // BASIC
+
+        public string yes = "Yes";
+        public string no = "No";
+
+        // END OF BASIC
+
+
+        // TERMINAL
+
+        public string terminal_yourpassword = "Your password";
+
+        // END OF TERMINAL
+
 
         // LOGIN FORM
 
@@ -19,11 +28,31 @@ namespace cos_languages
 
         // CALCULATOR APP DESCRIPTION
 
+        // -- OLD --
         public string app_calculator_number1 = "Number 1";
         public string app_calculator_number2 = "Number 2";
         public string app_calculator_function = "Function";
 
+        // -- NEW --
+        public string app_calculator_number = "Number";
+        public string app_calculator_operation = "Operation";
+        public string app_calculator_continue = "Continue";
+        public string app_calculator_yes = "Yes";
+        public string app_calculator_no = "No";
+        public string app_calculator_theresultis = "The result is";
+        public string app_calculator_pressentertogoback = "Press enter to go back";
+
         // END OF CALCULATOR APP DESCRIPTION
+
+
+        // ABOUT APP DESCRIPTION
+
+        public string app_about_system_name = "System name";
+        public string app_about_system_codename = "System codename";
+        public string app_about_system_version = "System version";
+        public string app_about_system_build = "System build";
+
+        // END OF ABOUT APP DESCRIPTION
 
 
         // ERRORS
@@ -36,6 +65,8 @@ namespace cos_languages
         public string err_rootcannotlosepermissions = "User 'root' can't lose their permissions! Please log in as different user!";
         public string err_isnotadministrator = "You are not an administrator!";
 
+        public string err_nocommandfoundfor = "No command found for";
+
         // END OF ERRORS
 
 
@@ -45,7 +76,22 @@ namespace cos_languages
         public string cfgmenu_users = "Users";
         public string cfgmenu_personalization = "Personalization";
         public string cfgmenu_language = "Language";
+        public string cfgmenu_system = "System";
         public string cfgmenu_back = "Back";
+
+
+        public string cfgmenu_system_title = "System";
+        public string cfgmenu_system_about = "About";
+        public string cfgmenu_system_factoryreset = "Factory reset";
+
+        public string cfgmenu_system_about_title = "About";
+        public string cfgmenu_system_about_systemversion = "System version";
+        public string cfgmenu_system_about_versioncodename = "Version code name";
+        public string cfgmenu_system_about_systembuild = "System build";
+
+        public string cfgmenu_system_factoryreset_title = "Factory reset";
+        public string cfgmenu_system_factoryreset_message = "Are you sure you want to delete all your data and restore the default system configuration?";
+        //public string 
 
 
         public string cfgmenu_users_title = "Users";
@@ -54,8 +100,14 @@ namespace cos_languages
 
         public string cfgmenu_users_listallusers_title = "List all users";
         public string cfgmenu_users_listallusers_selectauser = "Select a user";
-        public string cfgmenu_users_listallusers_enterusername = "Enter the username";
+        public string cfgmenu_users_listallusers_enterusername = "Enter the username"; // not used
+        public string cfgmenu_users_listallusers_enternumber = "Enter the number of the user";
         public string cfgmenu_users_listallusers_username = "Username";
+        public string cfgmenu_users_listallusers_password = "Password";
+        public string cfgmenu_users_listallusers_permissions = "Permissions";
+        public string cfgmenu_users_listallusers_changepermissions = "Change permissions";
+        public string cfgmenu_users_listallusers_deleteuser = "Delete user";
+        public string cfgmenu_users_listallusers_deleteuser_message = "Are you sure you want to delete user ";
 
 
         public string cfgmenu_personalization_title = "Personalization";
@@ -105,5 +157,37 @@ namespace cos_languages
 
         // END OF HELP DESCRIPTION
 
+
+        // CLOCK APP
+
+        public string app_clock_currenttime = "Current time";
+        public string app_clock_setalarm = "Set alarm";
+        public string app_clock_back = "Back";
+
+        // END OF CLOCK APP
+
+
+        // SUDO COMMANDS
+
+        // SUDO UPDATE
+
+        public string su_sudo_update_checkingforupdates = "Checking for updates";
+        public string su_sudo_update_fetchingupdates = "Fetching updates";
+        public string su_sudo_update_pleasewait = "Please wait";
+        public string su_sudo_update_noupdatesfound = "No updates found";
+        public string su_sudo_update_possibleserveroutage = "Possible server outage";
+        public string su_sudo_update_checkingserver = "Checking server";
+
+        // END OF SUDO UPDATE
+
+        // END OF SUDO COMMANDS
+
+
+        // TYPES OF USERS
+
+        public string usr_normal = "Normal user";
+        public string usr_admin = "Administrator";
+
+        // END OF TYPES OF USERS
     }
 }

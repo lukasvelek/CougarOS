@@ -1,0 +1,6 @@
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\bin\Release\cos-api-math.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\bin\Release\cos-api-math.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\obj\Release\cos-api-math.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\obj\Release\cos-api-math.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\obj\Release\cos-api-math.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-math\obj\Release\cos-api-math.pdb

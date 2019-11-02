@@ -1,25 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 using lng = cos_languages;
+using cfg = cos_api_config;
 
 namespace cos_apps
 {
     public class Calculator
     {
+        cfg.System cfgapisys = new cfg.System();
+        cfg.User cfgapiusr = new cfg.User();
 
         lng.Translator translator = new lng.Translator();
 
-        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        /*string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
         string language;
 
         public Calculator()
         {
-            if(lng[0].ToLower() == "czech")
+            if (lng[0].ToLower() == "czech")
             {
                 language = "Czech";
             }
@@ -27,9 +25,91 @@ namespace cos_apps
             {
                 language = "English";
             }
+        }*/
+
+        public void Main()
+        {
+            double a, b;
+            string op;
+            bool cont;
+
+            do
+            {
+                // ALPHA DESIGN
+
+                cont = false;
+                Console.WriteLine("{0}: ", translator.Translate(cfgapisys.Language, "app_calculator_number"));
+                a = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("{0} (+, -, *, /): ", translator.Translate(cfgapisys.Language, "app_calculator_operation"));
+                op = Console.ReadLine();
+                Console.WriteLine("{0}: ", translator.Translate(cfgapisys.Language, "app_calculator_number"));
+                b = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("{0}?", translator.Translate(cfgapisys.Language, "app_calculator_continue"));
+                Console.WriteLine("1/ {0}", translator.Translate(cfgapisys.Language, "app_calculator_yes"));
+                Console.WriteLine("2/ {0}", translator.Translate(cfgapisys.Language, "app_calculator_no"));
+                string option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        switch (op)
+                        {
+                            case "+":
+                                a += b;
+                                break;
+                            case "-":
+                                a -= b;
+                                break;
+                            case "*":
+                                a *= b;
+                                break;
+                            case "/":
+                                a /= b;
+                                break;
+                            default:
+                                a += b;
+                                break;
+                        }
+                        continue;
+                    case "2":
+                        break;
+                    default:
+                        continue;
+                }
+
+            } while (cont);
+
+            double result;
+
+            switch (op)
+            {
+                case "+":
+                    result = a + b;
+                    break;
+                case "-":
+                    result = a - b;
+                    break;
+                case "*":
+                    result = a * b;
+                    break;
+                case "/":
+                    result = a / b;
+                    break;
+                default:
+                    result = 0.0;
+                    break;
+            }
+
+            Console.WriteLine("{0}: {1}", translator.Translate(cfgapisys.Language, "app_calculator_theresultis"), result); // the result is: result
+            Console.WriteLine("{0}", translator.Translate(cfgapisys.Language, "app_calculator_pressentertogoback")); // press enter to go back to desktop
+            Console.ReadLine();
+            return;
+
+            // END OF ALPHA DESIGN
+
         }
 
-        public double loadNumbers()
+        /*public double loadNumbers()
         {
             Console.Clear();
             Console.WriteLine("{0}: ", translator.Translate(language, "app_calculator_number1"));
@@ -60,7 +140,7 @@ namespace cos_apps
 
         public int straightResponse(string text)
         {
-            string pattern = @"(\d+)\s+([-+*/])\s+(\d+)";
+            string pattern = @"(\d+)\s+([-+*//*])\s+(\d+)";
             foreach (var expression in text)
             {
                 foreach (Match m in Regex.Matches(text, pattern))
@@ -82,7 +162,7 @@ namespace cos_apps
             }
 
             return 0;
-        }
+        }*/
 
     }
 }

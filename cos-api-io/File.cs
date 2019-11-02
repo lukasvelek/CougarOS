@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.IO.Compression;
+using System.Text;
 
 namespace cos_api_io
 {
     public class File
     {
-        //FileStream fs = System.IO.File.Create(log_file_path + filename);
-
         public void checkLogFile(string log_file_path, string filename)
         {
             if (System.IO.File.Exists(log_file_path + filename))
@@ -48,7 +43,8 @@ namespace cos_api_io
             {
                 FileStream fs = System.IO.File.Create(log_file_path + filename, 1000, FileOptions.WriteThrough);
                 _continue = true;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 _continue = false;
@@ -81,16 +77,18 @@ namespace cos_api_io
 
         public bool checkAdmin(string user_file_path, string user_filename, string username, string password)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+            //string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+            string[] lines = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\cos_user.db");
 
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
-                if(line == "\"" + username + "\"-\"" + password + "\"-normal")
+                if (line == "\"" + username + "\"-\"" + password + "\"-normal")
                 {
                     // normal user
 
                     return false;
-                }else if(line == "\"" + username + "\"-\"" + password + "\"-admin")
+                }
+                else if (line == "\"" + username + "\"-\"" + password + "\"-admin")
                 {
                     // administrator
 
@@ -103,20 +101,35 @@ namespace cos_api_io
 
         public bool checkPassword(string username, string password)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+            //string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+            string[] lines = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\cos_user.db");
 
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
-                if(line == "\"" + username + "\"-\"" + password + "\"-admin")
-                {
+                /*if(line == "\"" + username + "\"-\"" + password + "\"-admin"){
                     return true;
-                }else if(line == "\"" + username + "\"-\"" + password + "\"-normal")
+                }
+                else if(line == "\"" + username + "\"-\"" + password + "\"-normal")
                 {
                     return true;
                 }
                 else
                 {
-                    return false;
+                    continue;
+                }*/
+
+                string[] mix = line.Split('-');
+                string cname = mix[0];
+                string cpass = mix[1];
+                string cperm = mix[2];
+
+                if (username == cname && password == cpass)
+                {
+                    return true;
+                }
+                else
+                {
+                    continue;
                 }
             }
 
@@ -125,13 +138,31 @@ namespace cos_api_io
 
         public bool checkUserData(string user_file_path, string user_filename, string username, string password)
         {
-            //FileStream fs = System.IO.File.Create(user_file_path);
+            //string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
+            string[] lines = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\cos_user.db");
 
-            string[] lines = System.IO.File.ReadAllLines(@"cos_user.db");
-
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
-                if (line == ("\"" + username + "\"-\"" + password + "\"-admin") || line == ("\"" + username + "\"-\"" + password + "\"-normal"))
+                /*if (line == ("\"" + username + "\"-\"" + password + "\"-admin") || line == ("\"" + username + "\"-\"" + password + "\"-normal"))
+                {
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }*/
+
+                // name-password-perm
+
+                string[] mix = line.Split('-');
+                string cname = mix[0];
+                string cpassword = mix[1];
+                string cperm = mix[2];
+
+                string eusername = username;
+                string epassword = password;
+
+                if (eusername == cname && epassword == cpassword)
                 {
                     return true;
                 }

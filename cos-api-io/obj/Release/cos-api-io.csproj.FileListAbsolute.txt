@@ -1,0 +1,6 @@
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\bin\Release\cos-api-io.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\bin\Release\cos-api-io.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\obj\Release\cos-api-io.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\obj\Release\cos-api-io.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\obj\Release\cos-api-io.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-io\obj\Release\cos-api-io.pdb

@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-languages", "cos-langua
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-api-files", "cos-api-files\cos-api-files.csproj", "{F31D5ECC-163C-4D9A-A850-97A616C816B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-api-config", "cos-api-config\cos-api-config.csproj", "{7C05A228-33C2-4662-8A66-8F7F56C30F7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{F31D5ECC-163C-4D9A-A850-97A616C816B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31D5ECC-163C-4D9A-A850-97A616C816B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31D5ECC-163C-4D9A-A850-97A616C816B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C05A228-33C2-4662-8A66-8F7F56C30F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C05A228-33C2-4662-8A66-8F7F56C30F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C05A228-33C2-4662-8A66-8F7F56C30F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C05A228-33C2-4662-8A66-8F7F56C30F7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{FC4D120B-DAC2-462A-913E-E1803B7C2A45} = {394900B1-8F41-4D68-823D-F868FCF6558B}
 		{D1DABEC1-975A-464E-841F-F3C6F5CD0B8F} = {394900B1-8F41-4D68-823D-F868FCF6558B}
 		{F31D5ECC-163C-4D9A-A850-97A616C816B0} = {394900B1-8F41-4D68-823D-F868FCF6558B}
+		{7C05A228-33C2-4662-8A66-8F7F56C30F7D} = {394900B1-8F41-4D68-823D-F868FCF6558B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D71050-FB92-4271-9461-165A9FCE01A4}

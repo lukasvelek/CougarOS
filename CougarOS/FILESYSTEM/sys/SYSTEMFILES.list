@@ -1,0 +1,9 @@
+﻿sys\cos_user.db
+sys\Help_AllCommands
+sys\SYSTEMFILES.list
+sys\POST_INSTALLATION.sys
+sys\config\Color.cfg
+sys\config\Language.cfg
+sys\config\SystemInfo.cfg
+sys\resources\os_logo.resource
+sys\resources\WelcomeUserAfterInstallation.resource

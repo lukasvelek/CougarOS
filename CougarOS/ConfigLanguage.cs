@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 using lng = cos_languages;
 
@@ -13,12 +8,12 @@ namespace CougarOS
     {
         lng.Translator translator = new lng.Translator();
 
-        string[] lng = System.IO.File.ReadAllLines(@"Language.cfg");
+        string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
         string language;
 
         public ConfigLanguage()
         {
-            if(lng[0].ToLower() == "czech")
+            if (lng[0].ToLower() == "czech")
             {
                 language = "Czech";
             }
@@ -59,7 +54,7 @@ namespace CougarOS
 
         private void ChangeLanguage(string language)
         {
-            System.IO.File.WriteAllText(@"Language.cfg", language.ToUpper());
+            System.IO.File.WriteAllText(@"FILESYSTEM\sys\config\Language.cfg", language.ToUpper());
             return;
         }
 

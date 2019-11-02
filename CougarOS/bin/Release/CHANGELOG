@@ -1,0 +1,12 @@
+﻿### 1.0 (19_9_1000) - Rainbow Carousel ###
+- added calculator, notepad, clock apps
+- added 2 users (root, lukas)
+- added foreground & background color personalization
+- added 2 languages (english, czech)
+- added 'su', 'desu' commands
+- added 'sudo' command
+- added basic system configuration ability
+- added filesystem (doesn't work yet)
+- added basic system functions
+- started work on the system core
+- added system core (not completely functional)
