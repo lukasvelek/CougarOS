@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CougarOS.exe.manifest" size="10278">
+    <dependentAssembly dependencyType="install" codebase="CougarOS.exe.manifest" size="11385">
       <assemblyIdentity name="CougarOS.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gtDPI0AE/zLSqyo1mDf/RW/wcyjQ2fy9KZtzx5Ffukg=</dsig:DigestValue>
+        <dsig:DigestValue>AsqZPRvGW/FqkO1O7Y2G+rW8AzJ/UlIORh+QBXndqY0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

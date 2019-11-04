@@ -31,6 +31,8 @@ namespace CougarOS
         static apps.Clock appClock = new apps.Clock();
         static apps.Notepad appNotepad = new apps.Notepad();
         static apps.TextBrowser appTextBrowser = new apps.TextBrowser();
+        static apps.Yes appYes = new apps.Yes();
+        static apps.Cat appCat = new apps.Cat();
 
         // END OF APP DECLARATION
 
@@ -48,9 +50,22 @@ namespace CougarOS
             return;
         }
 
+        public void cat()
+        {
+            appCat.Main();
+            return;
+        }
+
+        public void yes()
+        {
+            appYes.Main();
+            return;
+        }
+
         public void textbrowser()
         {
             appTextBrowser.Main();
+            return;
         }
 
         public void notepad()

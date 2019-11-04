@@ -74,10 +74,21 @@ namespace cos_api_system
             try
             {
                 System.IO.File.Delete(@"FILESYSTEM\sys\cos_user.db");
-                //System.IO.File.Delete(@"Color.cfg");
                 System.IO.File.Delete(@"FILESYSTEM\sys\config\Color.cfg");
-                //System.IO.File.Delete(@"Language.cfg");
                 System.IO.File.Delete(@"FILESYSTEM\sys\config\Language.cfg");
+
+                System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(@"FILESYSTEM\home\");
+
+                foreach(System.IO.FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+
+                foreach(System.IO.DirectoryInfo dir in di.GetDirectories())
+                {
+                    dir.Delete(true);
+                }
+
                 return true;
             }
             catch

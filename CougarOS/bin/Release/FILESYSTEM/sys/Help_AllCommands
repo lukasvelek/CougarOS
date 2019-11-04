@@ -10,3 +10,7 @@ logout - logs out the current user
 ping - pings the destination ip with 32 bytes of data
 mf - creates a file
 about - displays information about the operating system
+changelog - displays the os changelog
+sudo - allows performing super-user-only actions
+yes - repeats certain text certain times
+cat - reads content of a file

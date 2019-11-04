@@ -1,5 +1,4 @@
 ﻿# WORK IN PROGRESS
-- make a general config api
 
 
 
@@ -16,9 +15,8 @@
 
 
 # No. 2 Priority
-- create user's folder + subfolders during installation
 - each user has their own config
-- if any necessary file is missing, repair
+- if any necessary file is missing, repair the os
 
 
 

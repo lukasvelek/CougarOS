@@ -7,3 +7,5 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.pdb
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Debug\cos-languages.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Debug\cos-languages.pdb
 C:\Users\Luky\source\repos\CougarOS\cos-api-user\obj\Debug\cos-api-user.csproj.CopyComplete
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Debug\cos-api-config.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-user\bin\Debug\cos-api-config.pdb

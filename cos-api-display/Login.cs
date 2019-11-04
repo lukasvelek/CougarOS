@@ -18,6 +18,8 @@ namespace cos_api_display
             Console.WriteLine("- LOGIN -");
             Console.WriteLine("---------");
             Console.WriteLine();
+
+            cfgapisys.Language = "English";
         }
 
         public string getUsername()

@@ -7,3 +7,5 @@ C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Release\cos-apps.csproj.CoreCom
 C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Release\cos-apps.csproj.CopyComplete
 C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Release\cos-apps.dll
 C:\Users\Luky\source\repos\CougarOS\cos-apps\obj\Release\cos-apps.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-apps\bin\Release\cos-api-config.dll
+C:\Users\Luky\source\repos\CougarOS\cos-apps\bin\Release\cos-api-config.pdb

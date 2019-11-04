@@ -20,30 +20,19 @@ namespace cos_api_system
 
         d.InstallationScreen dis = new d.InstallationScreen();
 
-        /*string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
-        string language;*/
-
         string RootPassword = null;
         string Username = null;
         string Userpassword = null;
-
-        /*public InstallationSubPrograms()
-        {
-            if (lng[0].ToLower() == "czech")
-            {
-                language = "Czech";
-            }
-            else
-            {
-                language = "English";
-            }
-        }*/
 
         public bool CheckForFiles()
         {
             if(System.IO.File.Exists(@"FILESYSTEM\sys\cos_user.db") || System.IO.File.Exists(@"FILESYSTEM\sys\config\Color.cfg") || System.IO.File.Exists(@"FILESYSTEM\sys\config\Language.cfg"))
             {
                 return false;
+            }
+            else
+            {
+                return true;
             }
 
             return true;
@@ -78,21 +67,28 @@ namespace cos_api_system
             string[] mixa = mix.Split('-');
             Username = mixa[0];
             Userpassword = mixa[1];
-            /*WriteUser("root", RootPassword, true);
-            WriteUser(Username, Userpassword);*/
 
             string userconfig = dis.Personalization(); // let the user personalize
             string[] uc = userconfig.Split('-');
             // language, bgcolor, fgcolor
-            /*WriteLanguage(uc[0]);
-            WriteColor(uc[1]);
-            WriteColor(uc[2]);*/
 
             System.IO.File.WriteAllText(@"FILESYSTEM\sys\cos_user.db", "root-" + RootPassword + "-admin\n" + Username + "-" + Userpassword + "-normal");
             System.IO.File.WriteAllText(@"FILESYSTEM\sys\config\Language.cfg", uc[0]);
             System.IO.File.WriteAllText(@"FILESYSTEM\sys\config\Color.cfg", uc[1] + "\n" + uc[2]);
 
+            CreateUserFolder(Username);
+
             dis.Welcome(); // welcome the user with a message
+        }
+
+        public void CreateUserFolder(string username)
+        {
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\root\");
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\root\Desktop\");
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\root\Documents\");
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\" + username);
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\" + username + "\\Desktop\\");
+            System.IO.Directory.CreateDirectory(@"FILESYSTEM\home\" + username + "\\Documents\\");
         }
 
         private void WriteUser(string name, string password, bool isAdmin = false)

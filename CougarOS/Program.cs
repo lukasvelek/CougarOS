@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.NetworkInformation;
-
 using apps = cos_apps;
+using cfg = cos_api_config;
 using display = cos_api_display;
 using files = cos_api_files;
 using io = cos_api_io;
@@ -9,7 +9,6 @@ using lng = cos_languages;
 using math = cos_api_math;
 using sys = cos_api_system;
 using usr = cos_api_user;
-using cfg = cos_api_config;
 
 namespace CougarOS
 {
@@ -80,20 +79,21 @@ namespace CougarOS
                 Main();
             }
 
-            if (!cfgapisys.HasBootedUp)
+            /*if (!cfgapisys.HasBootedUp)
             {
                 BootUp();
             }
             else
             {
                 Login();
-            }
+            }*/
+
+            BootUp();
+            Login();
         }
 
         private static void BootUp()
         {
-            sysboot.PreConfigLoad();
-
             // CONFIGURATION LOADING
 
             string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
@@ -162,10 +162,11 @@ namespace CougarOS
 
             // END OF CONFIGURATION LOADING
 
+            sysboot.PreConfigLoad();
             sysboot.PostConfigLoad();
 
             cfgapisys.HasBootedUp = true;
-            Main();
+            //Main();
         }
 
         private static void Login(string error = null)
@@ -311,10 +312,10 @@ namespace CougarOS
 
                     string subPath = Console.ReadLine();
 
-                    switch (subPath)
+                    /*switch (subPath)
                     {
                         //case "1":
-                    }
+                    }*/
 
                     break;
                 case "dir":
@@ -398,7 +399,7 @@ namespace CougarOS
                     }
                     else if (cfgapiusr.CurrentUserUsername == "root")
                     {
-                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_rootcannotlosepermissions")); 
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_rootcannotlosepermissions"));
                     }
                     else
                     {
@@ -456,6 +457,12 @@ namespace CougarOS
                     break;
                 case "textbrowser":
                     commands.textbrowser();
+                    break;
+                case "yes":
+                    commands.yes();
+                    break;
+                case "cat":
+                    commands.cat();
                     break;
 
                 default:

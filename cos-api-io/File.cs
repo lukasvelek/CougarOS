@@ -82,7 +82,7 @@ namespace cos_api_io
 
             foreach (string line in lines)
             {
-                if (line == "\"" + username + "\"-\"" + password + "\"-normal")
+                /*if (line == "\"" + username + "\"-\"" + password + "\"-normal")
                 {
                     // normal user
 
@@ -93,6 +93,21 @@ namespace cos_api_io
                     // administrator
 
                     return true;
+                }*/
+
+                string[] parts = line.Split('-');
+
+                if(parts[0] == username && parts[2] == "admin")
+                {
+                    return true;
+                }
+                else if(parts[0] == username && parts[2] == "normal")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
                 }
             }
 

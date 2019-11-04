@@ -7,3 +7,9 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Release\cos-api-system.cs
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Release\cos-api-system.csproj.CopyComplete
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Release\cos-api-system.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\obj\Release\cos-api-system.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-api-config.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-api-display.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-languages.dll
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-api-config.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-api-display.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Release\cos-languages.pdb
