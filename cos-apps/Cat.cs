@@ -10,8 +10,14 @@ namespace cos_apps
 {
     public class Cat
     {
+        public string AppVersion { get; private set; }
 
         cfg.System cfgapisys = new cfg.System();
+
+        public Cat()
+        {
+            AppVersion = "1.0";
+        }
 
         public void Main()
         {

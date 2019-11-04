@@ -8,12 +8,13 @@ namespace cos_apps
 {
     public class TextBrowser
     {
+        public string AppVersion { get; private set; }
 
         string filename = "";
 
         public TextBrowser()
         {
-
+            AppVersion = "1.0";
         }
 
         public void Main()

@@ -4,6 +4,12 @@ namespace cos_apps
 {
     public class Help
     {
+        public string AppVersion { get; private set; }
+
+        public Help()
+        {
+            AppVersion = "1.0";
+        }
 
         public string allHelp()
         {

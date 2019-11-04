@@ -8,6 +8,12 @@ namespace cos_apps
 {
     public class Yes
     {
+        public string AppVersion { get; private set; }
+
+        public Yes()
+        {
+            AppVersion = "1.0";
+        }
 
         public void Main()
         {

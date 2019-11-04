@@ -10,27 +10,17 @@ namespace cos_apps
 {
     public class Notepad
     {
+        public string AppVersion { get; private set; }
+
         cfg.System cfgapisys = new cfg.System();
         cfg.User cfgapiusr = new cfg.User();
 
-        //lng.English l_english = new lng.English();
         lng.Translator translator = new lng.Translator();
-
-        /*string language;
-
-        string[] lang = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
 
         public Notepad()
         {
-            if (lang[0].ToLower() == "czech")
-            {
-                language = "Czech";
-            }
-            else
-            {
-                language = "English";
-            }
-        }*/
+            AppVersion = "1.0";
+        }
 
         public void Main()
         {

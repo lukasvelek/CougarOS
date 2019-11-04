@@ -7,13 +7,12 @@ namespace cos_apps
 {
     public class About
     {
+        public string AppVersion { get; private set; }
+
         cfg.System cfgapisys = new cfg.System();
         cfg.User cfgapiusr = new cfg.User();
 
         lng.Translator translator = new lng.Translator();
-
-        /*string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
-        string language;*/
 
         string[] systemInfo = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\SystemInfo.cfg");
         string systemVersion;
@@ -22,14 +21,7 @@ namespace cos_apps
 
         public About()
         {
-            /*if (lng[0].ToLower() == "czech")
-            {
-                language = "Czech";
-            }
-            else
-            {
-                language = "English";
-            }*/
+            AppVersion = "1.0";
 
             systemVersion = systemInfo[0];
             systemCodename = systemInfo[1];
@@ -39,9 +31,6 @@ namespace cos_apps
         public void ShowAbout()
         {
             Console.WriteLine("{0}: {1}", translator.Translate(cfgapisys.Language, "app_about_system_name"), "CougarOS");
-            /*Console.WriteLine(translator.Translate(language, "app_about_system_version"));
-            Console.WriteLine(translator.Translate(language, "app_about_system_build"));
-            Console.WriteLine(translator.Translate(language, "app_about_system_codename"));*/
             Console.WriteLine("{0}: {1}", translator.Translate(cfgapisys.Language, "app_about_system_version"), systemVersion);
             Console.WriteLine("{0}: {1}", translator.Translate(cfgapisys.Language, "app_about_system_build"), systemBuild);
             Console.WriteLine("{0}: {1}", translator.Translate(cfgapisys.Language, "app_about_system_codename"), systemCodename);

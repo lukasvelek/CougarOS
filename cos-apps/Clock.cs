@@ -6,24 +6,17 @@ namespace cos_apps
 {
     public class Clock
     {
+        public string AppVersion { get; private set; }
+
         cfg.System cfgapisys = new cfg.System();
         cfg.User cfgapiusr = new cfg.User();
 
         lng.Translator translator = new lng.Translator();
-        /*string[] lng = System.IO.File.ReadAllLines(@"FILESYSTEM\sys\config\Language.cfg");
-        string language;
-
+        
         public Clock()
         {
-            if (lng[0].ToLower() == "czech")
-            {
-                language = "Czech";
-            }
-            else
-            {
-                language = "English";
-            }
-        }*/
+            AppVersion = "1.0";
+        }
 
         public void Main()
         {
