@@ -61,6 +61,8 @@ namespace cos_master_api
         public string Username { get; private set; }
         public string Permissions { get; private set; }
 
+        public string CurrentLocation { get; private set; }
+
         public System()
         {
             // System Information
@@ -68,6 +70,8 @@ namespace cos_master_api
             SystemBuild = cfgapisys.SystemBuild;
             SystemVersionCodename = cfgapisys.SystemVersionCodename;
             Language = cfgapisys.Language;
+
+            CurrentLocation = cfgapisys.CurrentLocation;
 
             // Current Session Information
             Username = cfgapiusr.CurrentUserUsername;

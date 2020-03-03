@@ -179,7 +179,9 @@
     <None Include="FILESYSTEM\sys\config\SystemInfo.cfg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="FILEEXTENSIONS.txt" />
+    <Content Include="FILESYSTEM\sys\COMMANDS.res">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="OneDrive.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

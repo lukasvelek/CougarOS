@@ -68,9 +68,18 @@ namespace CougarOS
             return;
         }
 
-        public void notepad()
+        public void notepad(string sub)
         {
-            appNotepad.Main();
+            //appNotepad.Main();
+
+            if(sub == "new")
+            {
+                appNotepad.NewFile();
+            }
+            else
+            {
+                appNotepad.OpenFile(sub);
+            }
             return;
         }
 
