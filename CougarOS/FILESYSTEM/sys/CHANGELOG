@@ -10,3 +10,18 @@
 - added basic system functions
 - started work on the system core
 - added system core (not completely functional)
+
+### 1.1 (19_11_1100) - Rainbow Carousel Update 1 ###
+- added yes, cat, text browser apps
+- added installation
+- reworked configuration
+- reworked filesystem
+- moved system dependencies to the filesystem folder
+- added system configuration
+- added factory reset option
+- started work on the master api
+- code cleaning
+- overall code enhancements
+- debugging
+
+### 1.2 (20_01_1200) - Rainbow Carousel Update 2 ###

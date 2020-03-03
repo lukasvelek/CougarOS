@@ -13,3 +13,6 @@ C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-display.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-display.pdb
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-config.dll
 C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\cos-api-config.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\Update.exe
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\Update.pdb
+C:\Users\Luky\source\repos\CougarOS\cos-api-system\bin\Debug\Update.exe.config

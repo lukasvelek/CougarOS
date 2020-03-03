@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using apps = cos_apps;
 using cfg = cos_api_config;
@@ -21,6 +22,7 @@ namespace CougarOS
         static math.SimpleMath mathsm = new math.SimpleMath();
 
         static io.File iofile = new io.File();
+        static io.Folder iofolder = new io.Folder();
 
         static display.Boot displayboot = new display.Boot();
         static display.Login displaylogin = new display.Login();
@@ -30,6 +32,7 @@ namespace CougarOS
         static sys.Register sysregister = new sys.Register();
         static sys.Installation sysinstall = new sys.Installation();
         static sys.Boot sysboot = new sys.Boot();
+        static sys.Update sysupdate = new sys.Update();
 
         static usr.NormalUser usrnu = new usr.NormalUser();
         static usr.SuperUser usrsu = new usr.SuperUser();
@@ -79,14 +82,10 @@ namespace CougarOS
                 Main();
             }
 
-            /*if (!cfgapisys.HasBootedUp)
+            if (System.IO.File.Exists(@"FILESYSTEM\sys\UPDATING.sys"))
             {
-                BootUp();
+                sysupdate.Install();
             }
-            else
-            {
-                Login();
-            }*/
 
             BootUp();
             Login();
@@ -162,6 +161,8 @@ namespace CougarOS
 
             // END OF CONFIGURATION LOADING
 
+            cfgapisys.SystemVersionGet();
+
             sysboot.PreConfigLoad();
             sysboot.PostConfigLoad();
 
@@ -181,6 +182,7 @@ namespace CougarOS
                 if (iofile.checkUserData(@"FILESYSTEM\sys\", "cos_user.db", cfgapiusr.CurrentUserUsername, cfgapiusr.CurrentUserPassword))
                 {
                     cfgapisys.CurrentLocation = "/home/";
+                    cfgapisys.CurrentLocationLong = "FILESYSTEM" + cfgapisys.CurrentLocation;
 
                     if (iofile.checkAdmin(@"FILESYSTEM\sys\", "cos_user.db", cfgapiusr.CurrentUserUsername, cfgapiusr.CurrentUserPassword))
                     {
@@ -217,6 +219,7 @@ namespace CougarOS
         {
             Environment.Exit(0);
         }
+
         private static void Config()
         {
             Console.Clear();
@@ -287,47 +290,37 @@ namespace CougarOS
 
             string cmd = Console.ReadLine();
 
-            // FOR NORMAL USERS
+            string[] filesInCurrentDirectory = System.IO.Directory.GetFiles(@cfgapisys.CurrentLocationLong);
+
+            /*foreach(string f in filesInCurrentDirectory)
+            {
+                Console.WriteLine(f);
+            }*/
+
             switch (cmd)
             {
                 case "mf":
-                    Console.WriteLine("Name of newly created file: ");
+                    Console.WriteLine("Filename: ");
                     string name = Console.ReadLine();
-                    Console.WriteLine("Where to save the file: ");
+                    
+                    iofile.createFile(name, cfgapisys.CurrentLocation);
 
-                    // List all directories available to the user
+                    break;
+                case "md":
+                    Console.WriteLine("Folder name: ");
+                    string folder = Console.ReadLine();
 
-                    int i = 0;
-
-                    string[] linez = System.IO.File.ReadAllLines(@"FILESYSTEM\available_folders");
-
-                    foreach (string line in linez)
-                    {
-                        i++;
-
-                        Console.WriteLine("{0}/ " + line, i);
-                    }
-
-                    Console.WriteLine("0/ Back");
-
-                    string subPath = Console.ReadLine();
-
-                    /*switch (subPath)
-                    {
-                        //case "1":
-                    }*/
+                    iofolder.createFolder(folder, cfgapisys.CurrentLocation);
 
                     break;
                 case "dir":
-                    Console.WriteLine("Change directory to: ");
+                    Console.WriteLine("New directory: ");
                     string newDir = Console.ReadLine();
                     fbrowser.ChangeDirectory(newDir);
 
                     break;
                 case "ls":
-                    Console.WriteLine("Directory: ");
-                    string dir = Console.ReadLine();
-                    fbrowser.ListContentOfDirectory(dir);
+                    fbrowser.ListContentOfDirectory(cfgapisys.CurrentLocation);
 
                     break;
                 case "clear":
@@ -340,8 +333,7 @@ namespace CougarOS
                     }
                     else
                     {
-                        // isn't admin
-                        // maybe wouldn't be able to configurate the os?
+                        Console.WriteLine(translator.Translate(cfgapisys.Language, "err_isnotadministrator"));
                     }
                     break;
                 case "logout":
@@ -363,22 +355,10 @@ namespace CougarOS
                 case "su":
                     if (cfgapiusr.CurrentUserPermission == "admin")
                     {
-                        // isn't needed
                         Console.WriteLine(translator.Translate(cfgapisys.Language, "err_alreadyadministrator"));
                     }
                     else
                     {
-                        /*if (systerminal.checkPassword(cfgapiusr.CurrentUserUsername))
-                        {
-                            cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername + "^su";
-                            currentPermission = "admin";
-                        }
-                        else
-                        {
-                            Console.WriteLine(translator.Translate(cfgapisys.Language, "err_badpassword"));
-                            Desktop();
-                        }*/
-
                         if (systerminal.checkSudoPassword())
                         {
                             cfgapiusr.CurrentUserUsernameLarge = cfgapiusr.CurrentUserUsername + "^su";

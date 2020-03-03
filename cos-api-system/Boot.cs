@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using cfg = cos_api_config;
 using cos_api_display;
 
 namespace cos_api_system
 {
     public class Boot
     {
+
+        cfg.System cfgapisys = new cfg.System();
 
         cos_api_display.Boot dispboot = new cos_api_display.Boot();
         Thread thread = new Thread();
@@ -22,6 +26,8 @@ namespace cos_api_system
 
             dispboot.drawLogo();
             dispboot.updateFolderContents();
+
+            cfgapisys.SystemVersionGet();
         }
 
         public void PostConfigLoad()

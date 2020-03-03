@@ -14,3 +14,4 @@ changelog - displays the os changelog
 sudo - allows performing super-user-only actions
 yes - repeats certain text certain times
 cat - reads content of a file
+md - creates a folder

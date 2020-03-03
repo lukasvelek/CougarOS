@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-api-config", "cos-api-c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cos-master-api", "cos-master-api\cos-master-api.csproj", "{C652766D-D1A2-4499-9785-B606E693C1E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update", "Update\Update.csproj", "{37CCEB18-56CC-41AB-8C43-8188888C6E4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{C652766D-D1A2-4499-9785-B606E693C1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C652766D-D1A2-4499-9785-B606E693C1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C652766D-D1A2-4499-9785-B606E693C1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37CCEB18-56CC-41AB-8C43-8188888C6E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CCEB18-56CC-41AB-8C43-8188888C6E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CCEB18-56CC-41AB-8C43-8188888C6E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CCEB18-56CC-41AB-8C43-8188888C6E4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

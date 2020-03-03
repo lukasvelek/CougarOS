@@ -1,0 +1,7 @@
+C:\Users\Luky\source\repos\CougarOS\Update\obj\Debug\Update.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\CougarOS\Update\obj\Debug\Update.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\CougarOS\Update\bin\Debug\Update.exe.config
+C:\Users\Luky\source\repos\CougarOS\Update\bin\Debug\Update.exe
+C:\Users\Luky\source\repos\CougarOS\Update\bin\Debug\Update.pdb
+C:\Users\Luky\source\repos\CougarOS\Update\obj\Debug\Update.exe
+C:\Users\Luky\source\repos\CougarOS\Update\obj\Debug\Update.pdb

@@ -195,5 +195,12 @@ namespace cos_api_io
             byte[] info = new UTF8Encoding(true).GetBytes(value);
             fs.Write(info, 0, info.Length);
         }
+
+        public void createFile(string filename, string path)
+        {
+            string fullpath = path + filename;
+
+            System.IO.File.Create(@fullpath);
+        }
     }
 }

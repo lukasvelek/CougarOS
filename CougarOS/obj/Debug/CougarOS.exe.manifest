@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-config.dll" size="5632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-config.dll" size="7168">
       <assemblyIdentity name="cos-api-config" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>w7DEXEuoXepi8FEjeabW3GDQuawREJag4tIWkndtWp0=</dsig:DigestValue>
+        <dsig:DigestValue>u/EeoAGlTQ2ZNR24wVF11htk34ScUhoWSjOpVK0cJlc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,19 +74,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bjfyFiu96B3jd7mVQnMv4McvMzDXC5r2FOa+IiHkBLw=</dsig:DigestValue>
+        <dsig:DigestValue>alRWRk94n+8WjUJP4wsEf50GSIMrMfv8bUOm5UnGo04=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-io.dll" size="6144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-io.dll" size="6656">
       <assemblyIdentity name="cos-api-io" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7z9RfJrSU2ZU732NDZcyCfmgBqEXaFLMqLzNV2B20mc=</dsig:DigestValue>
+        <dsig:DigestValue>JdjO7vFSA5F3x5G5GYAxtsXoMT2rkXaq/OwpAOKM0xw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-system.dll" size="10240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-api-system.dll" size="11776">
       <assemblyIdentity name="cos-api-system" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>olQPCz6y06N62mmrKr4RE4eCxNluCKafOGBFLpSC+TY=</dsig:DigestValue>
+        <dsig:DigestValue>HdzW8yLFTPOeRKCS9Fn03KWlz5duHmflYMUDBo3geXE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -122,19 +122,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HJ80UHN7tyDJ+LzSayJvQn/GYp1RIo6QWtdc2gmWG9k=</dsig:DigestValue>
+        <dsig:DigestValue>9TQNVWi7kWPqbM2AEOApwGa1OSur00qUkh3v6beDRvo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-apps.dll" size="8704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="cos-apps.dll" size="9728">
       <assemblyIdentity name="cos-apps" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cjRV3voMHFTwnLArc7jpA1lZU5Poq3kTk9bilqXujI4=</dsig:DigestValue>
+        <dsig:DigestValue>POUvQb863cIzuAUebPHrJIlYt9C6A8kAlCJ74o8HdGw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -158,7 +158,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CoQqxm6OBPU7MpiGQL8ctOCF99QYREIEn2cE+muE/UI=</dsig:DigestValue>
+        <dsig:DigestValue>FSEaMtYDh96TExdoIuV4sEiaFhmeDCpLYgDBXYe5ZVc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -187,6 +187,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>73B0slCytYXFNla9w0xLBUhV/GzNhs4QMBUfLEeTlS8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="UPDATE_PACK.txt" size="27">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HvTfwNVaetfWUiy2+L0CrPeX8YTYvOlz0Cra4aXaORg=</dsig:DigestValue>
     </hash>
   </file>
   <fileAssociation extension=".lol" description="External Support" progid="1547" defaultIcon="OneDrive.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />

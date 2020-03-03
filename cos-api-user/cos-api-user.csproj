@@ -51,6 +51,10 @@
       <Project>{7c05a228-33c2-4662-8a66-8f7f56c30f7d}</Project>
       <Name>cos-api-config</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cos-api-system\cos-api-system.csproj">
+      <Project>{fc4d120b-dac2-462a-913e-e1803b7c2a45}</Project>
+      <Name>cos-api-system</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cos-languages\cos-languages.csproj">
       <Project>{deff61fb-d4aa-4485-8130-0406abb7cc5d}</Project>
       <Name>cos-languages</Name>

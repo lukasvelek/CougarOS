@@ -13,13 +13,13 @@ namespace cos_api_config
         public string TextColor { get; set; }
         public string BackgroundColor { get; set; }
         public string CurrentLocation { get; set; }
+        public string CurrentLocationLong { get; set; }
         public string SystemBuild { get; private set; }
         public string SystemVersionCodename { get; private set; }
-
-        public bool HasBootedUp { get; set; }
-
         public string SystemVersion { get; private set; }
-
+        
+        public bool IsUpdating { get; set; }
+        public bool HasBootedUp { get; set; }
 
         public void SystemVersionGet()
         {
@@ -28,6 +28,13 @@ namespace cos_api_config
             SystemVersion = lines[0];
             SystemVersionCodename = lines[1];
             SystemBuild = lines[2];
+        }
+
+        public void SystemVersionUpdate(string NewSystemVersion, string NewSystemVersionCodename, string NewSystemBuild)
+        {
+            sys.IO.File.Delete(@"FILESYSTEM\sys\config\SystemInfo.cfg");
+
+            sys.IO.File.WriteAllText(@"FILESYSTEM\sys\config\SystemInfo.cfg", NewSystemVersion + "\n" + NewSystemVersionCodename + "\n" + NewSystemBuild);
         }
 
     }

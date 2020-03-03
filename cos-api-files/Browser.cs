@@ -1,4 +1,5 @@
 ﻿using System;
+using cfg = cos_api_config;
 
 namespace cos_api_files
 {
@@ -14,6 +15,8 @@ namespace cos_api_files
              
         */
 
+        cfg.System cfgapisys = new cfg.System();
+
         public string directory { get; set; }
         public string directoryShort { get; set; }
 
@@ -27,6 +30,9 @@ namespace cos_api_files
         {
             directory = newDir;
             directoryShort = newDir.Replace("/", "-");
+            cfgapisys.CurrentLocation = directoryShort;
+            cfgapisys.CurrentLocationLong = directory;
+            return;
         }
 
         public void ListContentOfDirectory(string dir)

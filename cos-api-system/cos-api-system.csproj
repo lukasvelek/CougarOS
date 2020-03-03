@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +53,7 @@
     <Compile Include="Register.cs" />
     <Compile Include="Terminal.cs" />
     <Compile Include="Thread.cs" />
+    <Compile Include="Update.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cos-api-config\cos-api-config.csproj">
@@ -68,6 +71,10 @@
     <ProjectReference Include="..\cos-languages\cos-languages.csproj">
       <Project>{deff61fb-d4aa-4485-8130-0406abb7cc5d}</Project>
       <Name>cos-languages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Update\Update.csproj">
+      <Project>{37cceb18-56cc-41ab-8c43-8188888c6e4e}</Project>
+      <Name>Update</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

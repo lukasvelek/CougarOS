@@ -38,3 +38,4 @@ C:\Users\Luky\source\repos\CougarOS\CougarOS\bin\Debug\FILESYSTEM\sys\Help_AllCo
 C:\Users\Luky\source\repos\CougarOS\CougarOS\bin\Debug\FILESYSTEM\sys\SYSTEMFILES.list
 C:\Users\Luky\source\repos\CougarOS\CougarOS\bin\Debug\cos-api-config.dll
 C:\Users\Luky\source\repos\CougarOS\CougarOS\bin\Debug\cos-api-config.pdb
+C:\Users\Luky\source\repos\CougarOS\CougarOS\bin\Debug\FILESYSTEM\usr\updates\README.md

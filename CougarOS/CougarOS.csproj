@@ -172,6 +172,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="FILESYSTEM\sys\TODO" />
+    <None Include="FILESYSTEM\usr\updates\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="FILESYSTEM\sys\config\SystemInfo.cfg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -181,6 +184,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TextTemplate.ico" />
+    <Content Include="UPDATE_PACK.txt" />
     <Content Include="USER_DATA_PROTOTYPE.txt" />
   </ItemGroup>
   <ItemGroup>

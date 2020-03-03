@@ -44,5 +44,11 @@
     <Compile Include="Browser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cos-api-config\cos-api-config.csproj">
+      <Project>{7c05a228-33c2-4662-8a66-8f7f56c30f7d}</Project>
+      <Name>cos-api-config</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using lng = cos_languages;
 using cfg = cos_api_config;
+using sys = cos_api_system;
 
 namespace cos_api_user
 {
@@ -12,6 +13,8 @@ namespace cos_api_user
 
         lng.English l_english = new lng.English();
         lng.Translator translator = new lng.Translator();
+
+        sys.Update sysupdate = new sys.Update();
 
         /*string language;
 
@@ -44,12 +47,10 @@ namespace cos_api_user
             switch (arg)
             {
                 case "null":
-                    //Null();
                     suc.Null();
                     break;
                 case "update":
-                    //Update();
-                    suc.Update();
+                    sysupdate.Main();
                     break;
             }
         }
